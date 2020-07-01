@@ -18,8 +18,6 @@ $newbody = $body | ConvertFrom-Json
 
 
 
-on
-
 $scope = $newbody.scope
 #Write-Host " Scope: $scope"
 $address = $newbody.address

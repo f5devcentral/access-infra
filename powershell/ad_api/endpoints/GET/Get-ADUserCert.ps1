@@ -40,7 +40,7 @@ else {
     $Property, $sAMAccountName = $RequestArgs.split("=")
 	  $searchentry = $sAMAccountName
 	  $server = 'dc1.f5lab.local'
-	  $exportcert = 'c:\infra\ps.cer'
+	  $exportcert = 'c:\access-infra\ps.cer'
 	  $searchtype = 'SamAccountNameOrCN'
 	
 
@@ -203,7 +203,7 @@ else {
         $ObjCertUser.sn = $searchpattern.sn
       
 		
-		$cert = get-content -path "c:\infra\$exportfile2" -Encoding Byte
+		$cert = get-content -path "c:\access-infra\$exportfile2" -Encoding Byte
 		$b64cert = [System.Convert]::ToBase64String($cert, 'InsertLineBreaks')
 		$content = "-----BEGIN CERTIFICATE-----`r`n" + $b64cert + "`r`n-----END CERTIFICATE-----"
 	
@@ -211,7 +211,7 @@ else {
 	$jsoncert.certificate = $content
 	
 
-	$content | Out-File -FilePath "c:\infra\$exportfile2" -Encoding ASCII
+	$content | Out-File -FilePath "c:\access-infra\$exportfile2" -Encoding ASCII
 	
 
 	$jsoncert =1 | Select-Object -Property certificate

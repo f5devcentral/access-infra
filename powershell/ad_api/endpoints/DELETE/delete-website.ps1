@@ -23,7 +23,7 @@ $site_name = $newbody.site_name
 #Write-Host "Sitename: $site_name"
 
 
-$websitebase = "c:\infra\websites"
+$websitebase = "c:\access-infra\websites"
   
  if(Test-Path IIS:/Sites/$site_name) {
 						
