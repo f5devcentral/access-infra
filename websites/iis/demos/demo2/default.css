@@ -1,0 +1,332 @@
+body {
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  background: #033D6B;
+  font: 15px Arial, Helvetica, sans-serif;
+  color: #000000;
+}
+
+#wrapper {
+  width: 100%;
+  border-spacing:0;
+  border-collapse:collapse;
+  padding: 0;
+}
+
+#content {
+  width: 1024px;
+  border-spacing:0;
+  border-collapse:collapse;
+  padding: 0;  
+  background: #ffffff;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+#header {
+  background-image: url("./img/esc_header-bkg.jpg");
+  background: #033D6B;
+  height: 260px;
+}
+
+#view {
+  margin-top: 30px; 
+  width: 100%;
+  border-spacing:0;
+  border-collapse:collapse;
+  padding: 0;    
+  background: #ffffff;
+  margin-bottom: 30px; 
+}
+
+#resources {
+  width: 768px;
+  border-spacing:0;
+  border-collapse:collapse;
+  padding: 0;    
+  background: #ffffff;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+#bottom {
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  background: #000000;
+  height: 20px;
+}
+
+#footer {
+  width: 100%;
+  background: #095694;
+  height: 40px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+td.title-l {
+  color: #000000;
+  background: #ffffff;
+  text-align: left;
+}
+
+td.title-r {
+  color: #000000;
+  background: #ffffff;
+  text-align: right;
+}
+
+td.label {
+  color: #ffffff;
+  background: #095694;
+  text-align: center;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+}
+
+td.data {
+  color: #000000;
+  background: #ffffff;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  margin: 2px;
+}
+
+/************************************************************************************
+Log In Form
+*************************************************************************************/
+
+#login,
+#question {
+  overflow: hidden;
+}
+
+.form .inputText {
+  margin-top: 5px;
+  width: 318px;
+  padding-right: 40px;
+  border: 1px solid #CFCFCF;
+}
+
+.form .inputText#pwd {
+  background-image: url(./img/keys2.jpg);
+  background-repeat: no-repeat;
+  background-position: 97% center;
+}
+
+div#usernameContainer div.label-container,
+div#passwordContainer div.label-container, 
+div#questionContainer div.label-container, 
+div#responseContainer div.label-container {
+    text-align: left;
+    margin-left: 0;
+    padding: 5px 0 0 0;
+}
+
+div#usernameContainer label,
+div#passwordContainer label,
+div#questionContainer label,
+div#responseContainer label {
+  width: 375px;
+  padding-left: 2px;
+}
+
+div#usernameContainer,
+div#passwordContainer, 
+div#questionContainer,
+div#responseContainer {
+  width: 375px;
+}
+
+input {
+  border: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 8px;
+  outline: 0;
+  font-size: 100%;
+}
+
+select {
+  padding:8px;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:5px;
+  -webkit-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+  -moz-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+  box-shadow: inset 1px 1px 2px rgb(105,107,103);
+  -o-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+  border:none;
+  outline:0;
+  display: inline-block;
+  cursor:pointer;
+  width:365px;
+}
+
+.inputText {
+  -moz-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+  -webkit-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+  -o-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+  box-shadow: inset 1px 1px 2px rgb(105,107,103);
+}
+
+input#submit {
+  -moz-box-shadow:inset 0px -14px 10px #045FA9;
+  -webkit-box-shadow:inset 0px -14px 10px #045FA9;
+  box-shadow:inset 0px -14px 10px #045FA9;
+  background-color:#033D6B;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  -o-border-radius: 6px;
+  border-radius:6px;
+  border:1px solid #045FA9;
+  color:#fff;
+  font-weight:normal;
+  padding:9px 48px;
+  text-decoration:none;
+}
+
+input#submit:hover {
+  -moz-box-shadow:inset 0px -14px 10px #55B1FC;
+  -webkit-box-shadow:inset 0px -14px 10px #55B1FC;
+  box-shadow:inset 0px -14px 10px #55B1FC;
+  background-color:#0680E5;
+}
+
+input#submit:active {
+  position:relative;
+  top:1px;
+}
+
+div#contentWrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+div.centeredContent {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+div#content1 {
+  width: 600px;
+  background-color: rgb(207,207,207);
+  padding: 20px 0 40px 0;
+  margin: 5px auto 10px auto;
+  position: relative;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+div#content1 div.centeredContent {
+  width: 375px;
+}
+
+div#content2 {
+  width: 600px;
+  padding: 0px 0 0px 0;
+  margin: 10px auto 10px auto;
+  position: relative;
+}
+
+div#content3 {
+  width: 600px;
+  background-color: rgb(250,215,215);
+  padding: 10px 0 10px 0;
+  border: 2px solid red;
+  margin: 20px auto 10px auto;
+  position: relative;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+div#content4 {
+  width: 550px;
+  background-color: rgb(232,232,232);
+  padding: 10px;
+  border: 1px solid white;
+  margin: 0px auto 10px auto;
+  position: relative;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+div#content5 {
+  width: 350px;
+  background-color: rgb(255,255,255);
+  padding: 8px;
+  border: 1px solid #c0c0c0;
+  margin: 0px auto 10px auto;
+  position: relative;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+div#content6 {
+  width: 550px;
+  background-color: rgb(204,255,204);
+  padding: 10px;
+  border: 1px solid green;
+  margin: 0px auto 0px auto;
+  position: relative;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+div#content-title {
+  margin: 0 auto;
+  padding: 0px 20px 0px 20px;
+  width: 600px;
+  font-variant:small-caps;
+  font-weight: bold;
+  color: #033D6B;
+  font-size: 1.6em;
+  font-family: Palatino, "Palatino linotype", Georgia, "Times New Roman", serif;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+
+label.qboxold {position:relative}
+label.qboxold:after {
+    content:'<>';
+    font:1em "Consolas", monospace;
+    color:#888;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:0px;
+    padding:0 0 2px;
+    border-bottom:1px solid #888;
+    position:absolute;
+    pointer-events:none;
+}
+label.qboxold:before {
+    content:'';
+    right:4px; top:0px;
+    width:20px; height:20px;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+

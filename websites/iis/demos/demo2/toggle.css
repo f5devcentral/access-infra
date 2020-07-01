@@ -1,0 +1,89 @@
+/************************************************************************************
+Toggle Page Elements
+*************************************************************************************/
+label { 
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.modal {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  right: 10px;
+  z-index: -100;
+  margin: 22px 15px 0px 0px;
+  padding: 10px 5px 10px 5px;
+  width: 32%;
+  min-height:200px;
+  border-radius: 6px;
+  border: 1px solid;
+  border-color: #e1e1e1;
+  background-color: rgb(207,207,207);
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 20px #999;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0s ease;
+  -moz-transition: opacity 0s ease;
+  -ms-transition: opacity 0s ease;
+  -o-transition: opacity 0s ease;
+  transition: opacity 0s ease;
+}
+
+input#toggle1, input#toggle2, input#toggle3, input#toggle4, input#toggle5, input#toggle6,
+input#toggle7, input#toggle8, input#toggle9, input#toggle10, input#toggle11, input#toggle12,
+input#toggle13, input#toggle14, input#toggle15, input#toggle16, input#toggle17, input#toggle18,
+input#toggle19, input#toggle20, input#toggle21, input#toggle22, input#toggle23, input#toggle24 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+input#toggle1:hover + .modal, input#toggle2:hover + .modal,  input#toggle3:hover + .modal, input#toggle4:hover + .modal,
+input#toggle5:hover + .modal, input#toggle6:hover + .modal,  input#toggle7:hover + .modal, input#toggle8:hover + .modal,
+input#toggle9:hover + .modal, input#toggle10:hover + .modal,  input#toggle11:hover + .modal, input#toggle12:hover + .modal,
+input#toggle13:hover + .modal, input#toggle14:hover + .modal,  input#toggle15:hover + .modal, input#toggle16:hover + .modal,
+input#toggle17:hover + .modal, input#toggle18:hover + .modal,  input#toggle19:hover + .modal, input#toggle20:hover + .modal,
+input#toggle21:hover + .modal, input#toggle22:hover + .modal,  input#toggle23:hover + .modal, input#toggle24:hover + .modal {
+  opacity: 1;
+  z-index: 1;
+}
+
+input#toggle1:checked + .modal, input#toggle2:checked + .modal,  input#toggle3:checked + .modal, input#toggle4:checked + .modal,
+input#toggle5:checked + .modal, input#toggle6:checked + .modal,  input#toggle7:checked + .modal, input#toggle8:checked + .modal,
+input#toggle9:checked + .modal, input#toggle10:checked + .modal,  input#toggle11:checked + .modal, input#toggle12:checked + .modal,
+input#toggle13:checked + .modal, input#toggle14:checked + .modal,  input#toggle15:checked + .modal, input#toggle16:checked + .modal,
+input#toggle17:checked + .modal, input#toggle18:checked + .modal,  input#toggle19:checked + .modal, input#toggle20:checked + .modal,
+input#toggle21:checked + .modal, input#toggle22:checked + .modal,  input#toggle23:checked + .modal, input#toggle24:checked + .modal {
+  opacity: 1;
+  z-index: 1;
+}
+
+input#toggle-gigamon, input#toggle-checkpoint, input#toggle-f5, input#toggle-juniper, input#toggle-cisco {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+input#toggle-gigamon:hover + .modal, input#toggle-checkpoint:hover + .modal,  input#toggle-f5:hover + .modal, input#toggle-juniper:hover + .modal, input#toggle-cisco:hover + .modal {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+input#toggle-gigamon:checked + .modal, input#toggle-checkpoint:checked + .modal,  input#toggle-f5:checked + .modal, input#toggle-juniper:checked + .modal, input#toggle-cisco:checked + .modal {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+
+
+

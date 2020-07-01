@@ -1,0 +1,623 @@
+/************************************************************************************
+PAGE SCALING: 1920px
+*************************************************************************************/
+@media all and (max-width: 1920px) {
+
+  /************************************************************************************
+  MAIN PAGE ELEMENTS
+  *************************************************************************************/
+
+  html body {
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Palatino, "Palatino linotype", Georgia, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    font-size: 1.1em;
+    color:#707070;
+    width: 100%;
+    /* This will remove default styles for buttons that iOS places onto certain UI elements. */
+    -webkit-appearance: none;
+    background-color: #707070;
+    background-image: none;
+    background-repeat: no-repeat;
+  }
+
+  body.admin {
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Palatino, "Palatino linotype", Georgia, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    font-size: 1.1em;
+    color:#707070;
+    width: 100%;
+    /* This will remove default styles for buttons that iOS places onto certain UI elements. */
+    -webkit-appearance: none;
+    background-color: #abd3ff;
+    background-image: none;
+    background-repeat: no-repeat;
+  }
+
+  div.header {
+    background-color: #303030;
+    color: #ebebeb;
+    border-bottom: 2px solid #000000;
+    height: 80px;
+    padding-left: 30px;
+    -moz-box-shadow: inset 0 30px 30px -30px rgba(69, 200, 255, 0.5), 0 20px 20px -20px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 0 30px 30px -30px rgba(69, 200, 255, 0.5), 0 20px 20px -20px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 30px 30px -30px rgba(69, 200, 255, 0.5), 0 20px 20px -20px rgba(0, 0, 0, 0.5);
+  }
+
+  div.header-admin {
+    background-color: #2e2eff;
+    color: #ebebeb;
+    border-bottom: 2px solid #000000;
+    height: 80px;
+    padding-left: 30px;
+    -moz-box-shadow: inset 0 30px 30px -30px rgba(69, 200, 255, 0.5), 0 20px 20px -20px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 0 30px 30px -30px rgba(69, 200, 255, 0.5), 0 20px 20px -20px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 30px 30px -30px rgba(69, 200, 255, 0.5), 0 20px 20px -20px rgba(0, 0, 0, 0.5);
+  }
+	
+  div.header-content {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    color: #ebebeb;
+    text-align: left;
+    float: left;
+  }
+
+  div.header-image {
+    margin: 0 12px 0 0;
+    padding: 0;
+    width: auto;
+    color: #ebebeb;
+    text-align: left;
+    float: left;
+    position: realive;
+  }
+	
+  div.header-title {
+    position: relative;
+    margin: 20px 0 10px 0;
+    font-size: 1.9em;
+    font-variant:small-caps;
+    line-height: 20px;
+    white-space: nowrap;
+  }
+
+  div.header-subtitle {
+    position: relative;
+    font-variant:small-caps;
+    font-size: 1.0em;
+    margin-top: -2px;
+    white-space: nowrap;
+  }
+
+  div#contentWrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  div.centeredContent {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  div#content-title {
+    position: relative;
+    margin: 20px auto 5px auto;
+    width: 93%;
+    font-variant:small-caps;
+    font-weight: bold;
+    color: #660000;
+    font-size: 1.0em;
+  }
+
+  div#mainContent {
+    width: 93%;
+    background-color: rgb(207,207,207);
+    padding: 10px 0px 0px 0px;
+    margin: 0px auto 0px auto;
+    position: relative;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+    text-align: center;
+    min-height: 255px;
+  }
+
+  div#content2 {
+    width: 600px;
+    padding: 15px 0 10px 0;  
+    margin: 10px auto 10px auto;
+    position: relative;
+  }
+
+  div#content4 {
+    height: auto;
+    background-color: rgb(207,207,207);
+    padding: 10px 5px 10px 5px;
+    margin: 30px 16px 0px 30px;
+    position: relative;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid;
+    box-shadow: 0px 0px 20px #999;
+    border-color: #e1e1e1;
+  }
+
+  div#content5 {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 10px;
+    margin: 22px 15px 0px 0px;
+    padding: 10px 5px 10px 5px;
+    width: 32%;
+    min-height:200px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #e1e1e1;
+    background-color: rgb(207,207,207);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px #999;
+  }
+
+  div#content6 {
+    width: 93%;
+    padding: 0px 0px 5px 0px;
+    margin: 0px auto 0px auto;
+     position: relative; 
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  div#content-custinfo {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 10px;
+    margin: 22px 15px 0px 0px;
+    padding: 10px 5px 10px 5px;
+    width: 60%;
+    min-height:200px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #e1e1e1;
+    background-color: rgb(207,207,207);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px #999;
+  }
+
+  div#content-err {
+    width: 600px;
+    background-color: rgb(234,184,174);
+    padding: 10px 0 10px 0;
+    border: 1px solid #990000;
+    margin: 15px auto 10px auto;
+    position: relative;
+    text-align: center;
+    font-size: 1.1em;
+    color: #990000;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+  }
+
+  div#footer {
+    margin: 0 auto;
+    width: 600px;
+    text-align: center;
+    padding-top: 5px;
+  }
+	
+  /************************************************************************************
+  Navigation Menu 
+  *************************************************************************************/
+
+  nav {
+    width: auto;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background: #000000 url(./img/bg-bubplastic.gif) top left repeat-x;
+    -webkit-box-shadow: 0px 10px 10px 2px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 10px 10px 2px rgba(0,0,0,0.25);
+    box-shadow: 0px 10px 10px 2px rgba(0,0,0,0.25);
+  }
+
+  nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+  }
+
+  nav ul li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    background: transparent url(./img/bg-bubplastic-button.gif) top left no-repeat;  
+  }
+
+  nav ul li a {
+    display: block;
+    height: 25px;
+    font-variant:small-caps;
+    font-size: 0.9em;
+    color: #ebebeb;
+    text-decoration: none;
+    padding-top: 5px;
+    cursor: pointer;
+    width: 130px;
+    text-align: center;
+  }
+
+  nav ul li:hover {
+    background: transparent url(./img/bg-bubplastic-h-red.gif) top left no-repeat;
+  }
+
+  nav ul:after {
+    content: ""; clear: both; display: block;
+  }
+
+  nav ul ul {
+    display: none;
+    z-index:1000;
+  }
+
+  nav ul li:hover > ul {
+    display: block;
+  }
+  
+  nav ul ul {
+    background: #660000; border-radius: 0px; padding: 0;
+    position: absolute; top: 100%;
+  }
+
+  nav ul ul li {
+    float: none; 
+    background: #660000;
+    border-bottom: .2px groove #303030;
+  }
+
+  nav ul ul li a {
+    padding-top: 5px;
+    color: #ebebeb;
+    font-size: .8em;
+    width: 130px;
+    text-align: center;
+  }	
+
+  a#short {
+    padding-top: 5px;
+    color: #ebebeb;
+    width: 75px;
+    text-align: center;
+  }
+
+  nav ul ul li a:hover {
+    background: #880000;
+  }
+
+  /************************************************************************************
+  Content Boxes
+  *************************************************************************************/
+
+  div#contentBox {
+    width: 800px;
+    background-color: rgb(207,207,207);
+    padding: 20px 0 40px 0;
+    margin: 40px auto 10px auto;
+    position: relative;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+  }
+
+  div.contentBoxCentered {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /************************************************************************************
+  Log In Form
+  *************************************************************************************/
+
+  div#logonBox {
+    width: 800px;
+    background-color: rgb(207,207,207);
+    padding: 20px 0 40px 0;
+    margin: 40px auto 10px auto;
+    position: relative;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+  }
+
+  div.logonBoxCentered {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+	
+  #login {
+    overflow: hidden;
+  }
+	
+	.form .inputText {
+	  margin-top: 5px;
+	  width: 318px;
+	  padding-right: 40px;
+	  border: 1px solid #CFCFCF;
+	}
+	
+	.form .inputText#uid {
+	  background-repeat: no-repeat;
+	  background-position: 97% center;
+	}
+	
+	.form .inputText#pwd {
+	  background-image: url(./img/keys.png);
+	  background-repeat: no-repeat;
+	  background-position: 97% center;
+	}
+	
+	div#usernameContainer div.label-container,
+	div#passwordContainer div.label-container {
+	    text-align: left;
+	    margin-left: 0;
+	    padding: 5px 0 0 0;
+	}
+	
+	div#usernameContainer label,
+	div#passwordContainer label {
+	  width: 375px;
+	  padding-left: 2px;
+	}
+	
+	div#usernameContainer,
+	div#passwordContainer {
+	  width: 375px;
+	  color: #505050;
+	}
+	
+	input {
+	  border: none;
+	  -moz-border-radius: 5px;
+	  -webkit-border-radius: 5px;
+	  border-radius: 5px;
+	  padding: 10px;
+	  outline: 0;
+	  font-size: 100%;
+	}
+	
+	.inputText {
+	  -moz-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+	  -webkit-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+	  -o-box-shadow: inset 1px 1px 2px rgb(105,107,103);
+	  box-shadow: inset 1px 1px 2px rgb(105,107,103);
+	}
+	
+	input#submit {
+	  -moz-box-shadow:inset 0px -14px 10px #990000;
+	  -webkit-box-shadow:inset 0px -14px 10px #990000;
+	  box-shadow:inset 0px -14px 10px #990000;
+	  background-color:#660000;
+	  -moz-border-radius:6px;
+	  -webkit-border-radius:6px;
+	  -o-border-radius: 6px;
+	  border-radius:6px;
+	  border:1px solid #990000;
+	  color:#fff;
+	  font-weight:normal;
+	  padding:9px 48px;
+	  text-decoration:none;
+	}
+	
+	input#submit:hover {
+	  -moz-box-shadow:inset 0px -14px 10px #880000;
+	  -webkit-box-shadow:inset 0px -14px 10px #880000;
+	  box-shadow:inset 0px -14px 10px #880000;
+	  background-color:#cc0000;
+	}
+	
+	input#submit:active {
+	  position:relative;
+	  top:1px;
+	}
+	
+	/************************************************************************************
+	Table 
+	*************************************************************************************/
+	#box-table-a {
+    	  font-size: 0.9em;
+	  margin: 0px 0px;
+	  width: 100%;
+	  text-align: center;
+	  border-collapse: collapse;
+	}
+	
+	#box-table-a th {
+	  font-size: 1.1em
+	  font-weight: normal;
+	  padding: 6px;
+	  background: #990000;
+	  border-top: 4px solid #660000;
+	  border-bottom: 1px solid #660000;
+	  color: #ebebeb;
+	}
+	#box-table-a td {
+	  padding: 4px;
+	  background: #f1f1f1; 
+	  border-bottom: .2px groove #303030;
+	  color: #303030;
+	}
+	
+	#box-table-a tr:hover td {
+	  background: #ffcccc;
+	  color: #000000;
+	  opacity: 1;
+	  z-index: 1;
+	}
+	
+	#box-table-b {
+	  font-size: 12px;
+	  margin: 30px 0px;
+	  width: 100%;
+	  text-align: center;
+	  border-collapse: collapse;
+	}
+	
+	#box-table-b th {
+	  font-size: 13px;
+	  font-weight: normal;
+	  padding: 6px;
+	  background: #990000;
+	  border-top: 4px solid #660000;
+	  border-bottom: 1px solid #660000;
+	  color: #ebebeb;
+	}
+	#box-table-b td {
+	  padding: 4px;
+	  background: #f1f1f1; 
+	  border-bottom: .2px groove #303030;
+	  color: #303030;
+	}
+	
+	#box-table-b tr:hover td {
+	  background: #ffcccc;
+	  color: #000000;
+	}
+	
+	td#box-a-none {
+	  padding: 4px;
+	  background: #f1f1f1; 
+	  border-bottom: .2px groove #303030;
+	  color: #303030;
+	}
+
+	.container {
+          padding: 10px 20px 10px 20px;
+	  width: 100%;
+	  height: auto;
+	}
+	
+	.right {
+	  font-size: .9em;
+	  width: 35%;
+	  white-space: nowrap;
+	}
+	
+	.left {
+	  width: 65%;
+	  white-space: nowrap;
+	}
+	
+	img {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	}
+	
+	img.f5 {
+	width: 35px;
+	}
+	
+	img.checkpoint {
+	width: 30px;
+	}
+	
+	img.status {
+	width: 35px;
+	}
+	
+	img.cisco {
+	width: 50px;
+	}
+	
+	img.juniper {
+	width: 60px;
+	}
+		
+	img.gigamon {
+	width: 50px;
+	}
+	
+  .tip, .note, .red-box {
+    font-size: 0.9em;
+    color: #000000;
+    background-color: #D55555;
+    display: block;
+    margin-top: 10px !important;
+    padding: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+    border-radius: 5px;
+    text-transform: none;
+    border: 1px solid; 
+    box-shadow: 0px 0px 20px #999;
+    border-color: #e1e1e1;
+  }
+}
+
+/************************************************************************************
+PAGE SCALING: 1680px
+*************************************************************************************/
+@media all and (max-width: 1680px) {
+  
+  div#content5, .modal {
+    width: 31%;
+  }
+}
+
+/************************************************************************************
+PAGE SCALING: 1280px
+*************************************************************************************/
+@media all and (max-width: 1280px) {
+
+  div#content5, .modal {
+    width: 30%;
+  }
+}
+
+/************************************************************************************
+PAGE SCALING: 1024px
+*************************************************************************************/
+@media all and (max-width: 1024px) {
+
+  div#content5, .modal {
+    width: 29%;
+  }
+}	

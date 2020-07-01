@@ -1,0 +1,26 @@
+@media all and (max-width: 2880px) {
+  html body { padding: 0; margin: 0; font-family: "Helvetica Neue", Helvetica, Palatino, "Palatino linotype", Georgia, Arial, sans-serif; text-rendering: optimizeLegibility; font-size: 1.1em; color:#282828; width: 100%; -webkit-appearance: none; background-image: none; background-repeat: no-repeat; }
+  div.header { background-color: #303030; color: #ebebeb; border-bottom: 2px solid #000000; height: 80px; padding-left: 30px; }
+  div.header-content { position: absolute; margin: 0; padding: 0; width: auto; color: #ebebeb; text-align: left; float: left; }
+  div.header-title { position: relative; margin: 20px 0 10px 0; font-size: 1.9em; font-variant:small-caps; line-height: 20px; white-space: nowrap; }
+  div.header-subtitle { position: relative; font-variant:small-caps; font-size: 1.0em; margin-top: -2px; white-space: nowrap; }
+  div.footer { background-color: #303030; color: #ebebeb; border-top: 2px solid #202020; height: 100%; margin-top: 60px; padding-left: 0px; -moz-box-shadow: 0 20px 20px 20px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 20px 20px 20px rgba(0, 0, 0, 0.5); box-shadow: 0 20px 20px 20px rgba(0, 0, 0, 0.5); }
+  div.footer-content { margin: 0; padding: 0; width: auto; color: #ebebeb; text-align: center; }
+  div.footer-title { margin: 20px 0 10px 0; font-size: 1.2em; font-variant:small-caps; line-height: 20px; white-space: nowrap; }
+  div.contentWrapper { width: 100%; margin: 0 auto; }
+  div.contentBox { text-align: center; position: relative; width: 75%; background-color: rgb(207,207,207); padding: 20px 20px 20px 20px; margin: 40px auto 10px auto; -moz-border-radius: 6px; -webkit-border-radius: 6px; -o-border-radius: 6px; border-radius: 6px; -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25); -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25); box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25); }
+  div.contentBoxCentered { width: 90%; margin: 0 auto; text-align: center; }
+  td.left {text-align: center; width: 45%; margin: 0 auto; vertical-align:top; }
+  td.l5 { text-align: center; width: 5%; margin: 0 auto; vertical-align:top; }
+  td.right { text-align: center; width: 45%; margin: 0 auto; vertical-align:top; }
+  table.layout { text-align: center; width: 100%; border-collapse: collapse; } 
+  table.data { text-align: center; width: 100%; border-collapse: collapse; } 
+  td.title { background:#b5c5dd; border: 1px solid #303030; padding:2px 0 2px 5px; text-align: center;}
+  td.subtitle { background:#c0c0c0; border: 1px solid #303030; padding:2px 0 2px 5px; text-align: center;}
+  td.key { width: 30%; background:#E7E7E7; border: 1px solid #303030; padding:2px 0 2px 5px; }
+  td.value { background:#F0F0F0; border: 1px solid #303030; padding:2px 0 2px 5px; }
+}
+
+@media all and (max-width: 1680px) { div#content5, .modal { width: 31%; } }
+@media all and (max-width: 1280px) { div#content5, .modal { width: 30%; } }
+@media all and (max-width: 1024px) { div#content5, .modal { width: 29%; } }	

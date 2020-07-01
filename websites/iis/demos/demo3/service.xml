@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/REC_3YRMVR_WS/REC_3YRMVR_WS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/REC_3YRMVR_WS/REC_3YRMVR_WS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/REC_3YRMVR_WS/REC_3YRMVR_WS">
+      <s:element name="get_dl_data_v3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSInput" nillable="true" type="tns:DL_Request" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DL_Request">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="dln" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="vendor_num" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="naic_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cust_text" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="get_dl_data_v3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="get_dl_data_v3Result" nillable="true" type="tns:DL_Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DL_Response">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="return_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="return_msg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cust_input" type="tns:DL_Request" />
+          <s:element minOccurs="0" maxOccurs="1" name="driver_data" type="tns:DL_Driver" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_data" type="tns:ArrayOfDL_NCDL" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_data" type="tns:ArrayOfDL_CDL" />
+          <s:element minOccurs="0" maxOccurs="1" name="citation_data" type="tns:ArrayOfDL_Citation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DL_Driver">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="match_rec" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="driver_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dob" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="height" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="weight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hair" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eyes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="orig_app_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="id_card_stat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="id_card_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addr_line" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addr_city_state" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addr_zip_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="current_dln" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_cert_exp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_cert_stat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="self_cert_cd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ncdl_cnt" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cdl_cnt" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="citation_cnt" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDL_NCDL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DL_NCDL" nillable="true" type="tns:DL_NCDL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DL_NCDL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_perm_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_issue_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_restrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_endors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_dmv_restrc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDL_CDL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DL_CDL" nillable="true" type="tns:DL_CDL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DL_CDL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_perm_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_isu_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_restrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_endors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_dmv_restrc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDL_Citation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DL_Citation" nillable="true" type="tns:DL_Citation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DL_Citation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="citation_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="conviction_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="conviction_state" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="court_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nv_violation_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="offense_type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cmv_offense_flag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="haz_mat_ofen_flag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="get_dl_data_v4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSInput" nillable="true" type="tns:DL_Request" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_dl_data_v4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="get_dl_data_v4Result" nillable="true" type="tns:DL_Response_v4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DL_Response_v4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="return_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="return_msg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cust_input" type="tns:DL_Request" />
+          <s:element minOccurs="0" maxOccurs="1" name="driver_data" type="tns:DL_Driver_v4" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_data" type="tns:ArrayOfDL_NCDL_v4" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_data" type="tns:ArrayOfDL_CDL_v4" />
+          <s:element minOccurs="0" maxOccurs="1" name="citation_data" type="tns:ArrayOfDL_Citation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DL_Driver_v4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="match_rec" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="driver_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dob" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="height" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="weight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hair" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eyes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="orig_app_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="id_card_stat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="id_card_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addr_line" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addr_city_state" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addr_zip_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="current_dln" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_cert_eff_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_cert_exp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_cert_post_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_cert_stat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="self_cert_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_cert_restrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="spe_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fed_waiv_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nv_waiv_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fingerprint_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_exmr_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_exmr_phone_num" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_exmr_licn_num" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_exmr_specialty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_exmr_jursdc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="med_exmr_reg_num" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ncdl_cnt" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cdl_cnt" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="citation_cnt" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDL_NCDL_v4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DL_NCDL_v4" nillable="true" type="tns:DL_NCDL_v4" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DL_NCDL_v4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_perm_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_issue_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_restrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_endors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_dmv_restrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncdl_cdlis_status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDL_CDL_v4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DL_CDL_v4" nillable="true" type="tns:DL_CDL_v4" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DL_CDL_v4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_perm_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_isu_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_exp_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_restrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_endors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_dmv_restrc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cdl_cdlis_status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="get_dl_data_v3SoapIn">
+    <wsdl:part name="parameters" element="tns:get_dl_data_v3" />
+  </wsdl:message>
+  <wsdl:message name="get_dl_data_v3SoapOut">
+    <wsdl:part name="parameters" element="tns:get_dl_data_v3Response" />
+  </wsdl:message>
+  <wsdl:message name="get_dl_data_v4SoapIn">
+    <wsdl:part name="parameters" element="tns:get_dl_data_v4" />
+  </wsdl:message>
+  <wsdl:message name="get_dl_data_v4SoapOut">
+    <wsdl:part name="parameters" element="tns:get_dl_data_v4Response" />
+  </wsdl:message>
+  <wsdl:portType name="REC_3YRMVR_WSSoap">
+    <wsdl:operation name="get_dl_data_v3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">NV DMV 3-year MVR Web Service: Version 3</wsdl:documentation>
+      <wsdl:input message="tns:get_dl_data_v3SoapIn" />
+      <wsdl:output message="tns:get_dl_data_v3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_dl_data_v4">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">NV DMV 3-year MVR Web Service: Version 4</wsdl:documentation>
+      <wsdl:input message="tns:get_dl_data_v4SoapIn" />
+      <wsdl:output message="tns:get_dl_data_v4SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="REC_3YRMVR_WSHttpGet" />
+  <wsdl:portType name="REC_3YRMVR_WSHttpPost" />
+  <wsdl:binding name="REC_3YRMVR_WSSoap" type="tns:REC_3YRMVR_WSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get_dl_data_v3">
+      <soap:operation soapAction="http://tempuri.org/REC_3YRMVR_WS/REC_3YRMVR_WS/get_dl_data_v3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_dl_data_v4">
+      <soap:operation soapAction="http://tempuri.org/REC_3YRMVR_WS/REC_3YRMVR_WS/get_dl_data_v4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="REC_3YRMVR_WSSoap12" type="tns:REC_3YRMVR_WSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get_dl_data_v3">
+      <soap12:operation soapAction="http://tempuri.org/REC_3YRMVR_WS/REC_3YRMVR_WS/get_dl_data_v3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_dl_data_v4">
+      <soap12:operation soapAction="http://tempuri.org/REC_3YRMVR_WS/REC_3YRMVR_WS/get_dl_data_v4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="REC_3YRMVR_WSHttpGet" type="tns:REC_3YRMVR_WSHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="REC_3YRMVR_WSHttpPost" type="tns:REC_3YRMVR_WSHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="REC_3YRMVR_WS">
+    <wsdl:port name="REC_3YRMVR_WSSoap" binding="tns:REC_3YRMVR_WSSoap">
+      <soap:address location="http://dmvapp.nv.gov:8079/DMV/OBL/REC_3YRMVR_WS/REC_3YRMVR_WS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="REC_3YRMVR_WSSoap12" binding="tns:REC_3YRMVR_WSSoap12">
+      <soap12:address location="http://dmvapp.nv.gov:8079/DMV/OBL/REC_3YRMVR_WS/REC_3YRMVR_WS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="REC_3YRMVR_WSHttpGet" binding="tns:REC_3YRMVR_WSHttpGet">
+      <http:address location="http://dmvapp.nv.gov:8079/DMV/OBL/REC_3YRMVR_WS/REC_3YRMVR_WS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="REC_3YRMVR_WSHttpPost" binding="tns:REC_3YRMVR_WSHttpPost">
+      <http:address location="http://dmvapp.nv.gov:8079/DMV/OBL/REC_3YRMVR_WS/REC_3YRMVR_WS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
