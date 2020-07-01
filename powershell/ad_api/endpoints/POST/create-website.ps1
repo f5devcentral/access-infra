@@ -127,7 +127,7 @@ $template_number = $newbody.template_number
 
 
 
-$websitebase = "c:\infra\websites"
+$websitebase = "c:\access-infra\websites"
 
 
 	$copystatus = Copy-WebsiteTemplate $websitebase $site_name $template_number

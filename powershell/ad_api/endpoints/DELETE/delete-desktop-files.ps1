@@ -34,7 +34,7 @@ $repo = $repo.ToLower()
 # Determines if the request is for an A Record
 if ($repo -eq "solutions") {
 
-	$files = Get-ChildItem -path \\jumpbox\c$\solutions\solution$number\desktop\
+	$files = Get-ChildItem -path \\jumpbox\c$\access-solutions\solution$number\desktop\
 		foreach ($file in $files) {
 			if(Test-Path \\jumpbox\c$\Users\$user\Desktop\$file) {
 				Remove-Item \\jumpbox\c$\Users\$user\Desktop\$file
@@ -44,7 +44,7 @@ if ($repo -eq "solutions") {
 
 
 } elseif ($repo -eq "labs") {
-	$files = Get-ChildItem -path \\jumpbox\c$\labs\class$number\desktop\
+	$files = Get-ChildItem -path \\jumpbox\c$\access-labs\class$number\desktop\
 		foreach ($file in $files) {
 			if(Test-Path \\jumpbox\c$\Users\$user\Desktop\$file) {
 				Remove-Item \\jumpbox\c$\Users\$user\Desktop\$file

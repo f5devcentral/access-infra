@@ -33,9 +33,9 @@ $repo = $repo.ToLower()
 
 # Determines if the request is for an A Record
 if ($repo -eq "solutions") {
-Copy-Item -Path \\jumpbox\c$\solutions\solution$number\desktop\* -Destination \\jumpbox\c$\Users\$user\Desktop -Recurse
+Copy-Item -Path \\jumpbox\c$\access-solutions\solution$number\desktop\* -Destination \\jumpbox\c$\Users\$user\Desktop -Recurse
 } elseif ($repo -eq "labs") {
-Copy-Item -Path \\jumpbox\c$\labs\class$number\desktop\* -Destination \\jumpbox\c$\Users\$user\Desktop -Recurse
+Copy-Item -Path \\jumpbox\c$\access-labs\class$number\desktop\* -Destination \\jumpbox\c$\Users\$user\Desktop -Recurse
 
 }
  
