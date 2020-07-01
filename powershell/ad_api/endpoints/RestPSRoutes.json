@@ -6,23 +6,43 @@
   },
   {
     "RequestType": "GET",
+    "RequestURL": "/aduser/get",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/Get-ADUserAttr.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/aduser/set",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/Set-DriverLic.ps1"
+  },
+  {
+    "RequestType": "PATCH",
+    "RequestURL": "/aduser/password",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/PATCH/Set-ADUserPassword.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/aduser/unlock",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/Unlock-ADUser.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/aduser/cert",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/Get-ADUserCert.ps1"
+  },
+  {
+    "RequestType": "GET",
     "RequestURL": "/vulnerable",
     "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/Get-ADUserVulnerable.ps1"
   },
   {
-    "RequestType": "GET",
-    "RequestURL": "/aduser",
-    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/get-user.ps1"
-  },
-  {
     "RequestType": "POST",
-    "RequestURL": "/aduser",
-    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/POST/create-user.ps1"
+    "RequestURL": "/aduser/create",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/POST/Post-Create-ADUser.ps1"
   },
   {
-    "RequestType": "PATCH",
-    "RequestURL": "/aduser",
-    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/PATCH/modify-user.ps1"
+    "RequestType": "GET",
+    "RequestURL": "/aduser/create",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/Create-ADUser.ps1"
   },
   {
     "RequestType": "DELETE",
@@ -31,23 +51,28 @@
   },
   {
     "RequestType": "GET",
-    "RequestURL": "/cert",
-    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/get-cert.ps1"
-  },
-  {
-    "RequestType": "GET",
-    "RequestURL": "/addr",
+    "RequestURL": "/addr/available",
     "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/available-address.ps1"
+  },
+    {
+    "RequestType": "GET",
+    "RequestURL": "/addr/scope-status",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/GET/scope-status.ps1"
   },
   {
     "RequestType": "POST",
-    "RequestURL": "/addr",
+    "RequestURL": "/addr/checkout",
     "RequestCommand": "c:/infra/powershell/ad_api/endPoints/POST/checkout-address.ps1"
   },
   {
     "RequestType": "DELETE",
-    "RequestURL": "/addr",
+    "RequestURL": "/addr/checkin",
     "RequestCommand": "c:/infra/powershell/ad_api/endPoints/DELETE/checkin-address.ps1"
+  },
+  {
+    "RequestType": "POST",
+    "RequestURL": "/aduser/delegation",
+    "RequestCommand": "c:/infra/powershell/ad_api/endPoints/POST/user-delegation-create.ps1"
   },
   {
     "RequestType": "POST",
@@ -84,7 +109,7 @@
     "RequestURL": "/computer",
     "RequestCommand": "c:/infra/powershell/ad_api/endPoints/DELETE/computer-spn-delete.ps1"
   },
-  {
+    {
     "RequestType": "POST",
     "RequestURL": "/computer",
     "RequestCommand": "c:/infra/powershell/ad_api/endPoints/POST/computer-spn-create.ps1"
