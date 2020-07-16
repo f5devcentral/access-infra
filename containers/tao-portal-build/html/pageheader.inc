@@ -3,7 +3,7 @@
   <div style="display:table;width:100%;">
     <div id="cssmenu" >
       <ul>
-        <li class="active"><a href='./index.php?page=solution'><span>TeamAccess: <?php echo strtoupper($portal['host']); ?></span></a></li>
+        <li class="active"><a href='./index.php?page=solution'><span>Access: <?php echo strtoupper($portal['host']); ?></span></a></li>
         <?php
           switch ($portal['host']) {
             case "portal":

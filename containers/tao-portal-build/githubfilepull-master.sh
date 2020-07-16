@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /www/sites/files-master.f5lab.local/solutions
+cd /www/master/solutions
 git pull -q origin master 
-cd /www/sites/files-master.f5lab.local/labs
+cd /www/master/labs
 git pull -q origin master 

@@ -6,10 +6,10 @@ RUN apk add git
 
 RUN adduser -D -u 1000 -g 'www' www 
 RUN mkdir /www
-RUN mkdir /www/html
-RUN mkdir /www/sites
-RUN mkdir /www/sites/files-master.f5lab.local
-RUN mkdir /www/sites/files-dev.f5lab.local 
+RUN mkdir /www/portal
+RUN mkdir /www/dev
+RUN mkdir /www/dev/custom
+RUN mkdir /www/master
 
 RUN chown -R www:www /var/lib/nginx 
 RUN chown -R www:www /www 
@@ -86,6 +86,7 @@ RUN echo "${TIMEZONE}" > /etc/timezone
 RUN sed -i "s|;*date.timezone =.*|date.timezone = ${TIMEZONE}|i" /etc/php7/php.ini  
 
 RUN mkdir /etc/periodic/1min
+RUN chown -R www:www /etc/periodic/1min
 
 RUN git config --global user.name "Team Access"
 RUN git config --global user.name "team.access.online@gmail.com"
@@ -95,9 +96,11 @@ COPY ./mime.types /etc/nginx/mime.types
 COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY ./files-master.f5lab.local.conf /etc/nginx/conf.d
 COPY ./files-dev.f5lab.local.conf /etc/nginx/conf.d
-COPY ./html /www/html
-COPY ./html-master /www/sites/files-master.f5lab.local
-COPY ./html-dev /www/sites/files-dev.f5lab.local
+COPY ./portal.f5lab.local.conf /etc/nginx/conf.d
+COPY ./devportal.f5lab.local.conf /etc/nginx/conf.d
+COPY ./html /www/portal
+COPY ./html-master /www/master
+COPY ./html-dev /www/dev
 COPY ./githubfilepull-master.sh /etc/periodic/1min/githubfilepullmaster
 COPY ./githubfilepull-dev.sh /etc/periodic/1min/githubfilepulldev
 COPY ./start_nginx.sh /start_nginx.sh
@@ -108,8 +111,8 @@ RUN chmod 600 /etc/crontabs/root
 RUN chmod 655 /etc/periodic/1min/githubfilepullmaster
 RUN chmod 655 /etc/periodic/1min/githubfilepulldev
 
-RUN cd /www/sites/files-master.f5lab.local && git clone https://github.com/teamaccessonline/solutions && git clone https://github.com/teamaccessonline/labs 
-RUN cd /www/sites/files-dev.f5lab.local && git clone https://github.com/teamaccessonline/solutions && git clone https://github.com/teamaccessonline/labs 
+RUN cd /www/master && git clone --single-branch https://github.com/f5devcentral/access-solutions solutions && git clone --single-branch https://github.com/f5devcentral/access-labs labs
+RUN cd /www/dev && git clone -b dev --single-branch https://github.com/f5devcentral/access-solutions solutions && git clone -b dev --single-branch https://github.com/f5devcentral/access-labs labs 
 
 RUN chmod +x /start_nginx.sh /start_php-fpm.sh /start_crond.sh /wrapper.sh
 

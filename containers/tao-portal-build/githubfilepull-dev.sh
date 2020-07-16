@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /www/sites/files-dev.f5lab.local/solutions
+cd /www/dev/solutions
 git pull -q origin dev 
-cd /www/sites/files-dev.f5lab.local/labs
+cd /www/dev/labs
 git pull -q origin dev 
