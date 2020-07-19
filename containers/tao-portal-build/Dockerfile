@@ -101,15 +101,19 @@ COPY ./devportal.f5lab.local.conf /etc/nginx/conf.d
 COPY ./html /www/portal
 COPY ./html-master /www/master
 COPY ./html-dev /www/dev
-COPY ./githubfilepull-master.sh /etc/periodic/1min/githubfilepullmaster
-COPY ./githubfilepull-dev.sh /etc/periodic/1min/githubfilepulldev
+COPY ./githubfilepull-labs-dev.sh /etc/periodic/1min/githubfilepull-labs-dev
+COPY ./githubfilepull-labs-master.sh /etc/periodic/1min/githubfilepull-labs-master
+COPY ./githubfilepull-solutions-dev.sh /etc/periodic/1min/githubfilepull-solutions-dev
+COPY ./githubfilepull-solutions-master.sh /etc/periodic/1min/githubfilepull-solutions-master
 COPY ./start_nginx.sh /start_nginx.sh
 COPY ./start_php-fpm.sh /start_php-fpm.sh
 COPY ./start_crond.sh /start_crond.sh
 COPY ./wrapper.sh /wrapper.sh
 RUN chmod 600 /etc/crontabs/root
-RUN chmod 655 /etc/periodic/1min/githubfilepullmaster
-RUN chmod 655 /etc/periodic/1min/githubfilepulldev
+RUN chmod 655 /etc/periodic/1min/githubfilepull-labs-dev
+RUN chmod 655 /etc/periodic/1min/githubfilepull-labs-master
+RUN chmod 655 /etc/periodic/1min/githubfilepull-solutions-dev
+RUN chmod 655 /etc/periodic/1min/githubfilepull-solutions-master
 
 RUN cd /www/master && git clone --single-branch https://github.com/f5devcentral/access-solutions solutions && git clone --single-branch https://github.com/f5devcentral/access-labs labs
 RUN cd /www/dev && git clone -b dev --single-branch https://github.com/f5devcentral/access-solutions solutions && git clone -b dev --single-branch https://github.com/f5devcentral/access-labs labs 

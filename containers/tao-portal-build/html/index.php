@@ -24,6 +24,9 @@
     case "repo":
       include('./repo.inc');
       break;
+    case "settings":
+      include('./settings.inc');
+      break;
     default:
       $page='solution';
       include('./content.inc');

@@ -25,7 +25,10 @@
       <form action='/index.php'>
         <input id='filterinput' type='text' name='filter'>
         <input type='hidden' name='page' value='<?php echo $page; ?>'></i>
-      </form>      
+      </form>
     </div>
+    <div id="settingsmenu">      
+      <a href='./index.php?page=settings'><img style="vertical-align:middle" src="./img/settings.png" width="22px"></a>
+    </div>																												   
   </div>
   </header>
