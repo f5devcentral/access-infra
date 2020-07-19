@@ -6,10 +6,9 @@
   <footer>
     <div class="copyright">
       <div class="zerogrid wrapper">
-        @access:<?php echo $page."s"; ?> - <a href="https://github.com/f5devcentral/access-<?php echo $page."s"; ?>" target="_blank" rel="nofollow">Access: <?php echo $portal; ?></a>
-        <ul class="quick-link">
-          <li>Disclaimer: This is not an official web site for F5 Networks.</li> 
-        </ul>
+        <div style="float:left; width:33%; text-align:center;">@access:<?php echo $page."s"; ?> - <a href="https://github.com/f5devcentral/access-<?php echo $page."s"; ?>" target="_blank" rel="nofollow">Access: <?php echo $portal; ?></a></div>
+        <div style="float:left; width:34%; text-align:center;">Portal Version: <?php echo $version; ?> <a href="">Update</a></div>
+        <div style="float:left; width:33%; text-align:center;">Disclaimer: This is not an official web site for F5 Networks.</div>
       </div>
     </div>
   </footer>

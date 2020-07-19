@@ -62,9 +62,9 @@
     $name = nameRepo($repo, $branch); 
     $file = $cronloc.$name."-pull";
     $current = file_get_contents($file) ;
-    $current .= "#!/bin/sh\ncd ".$customloc."\ngit pull -q origin ".$branch."\n";
+    $current .= "#!/bin/sh\ncd ".$customloc.$name."\ngit pull -q origin ".$branch."\n";
     file_put_contents($file, $current);
-    shell_exec("chmod 655 ".$cronloc.$file);
+    shell_exec("chmod 655 ".$file);
   }
 
   function findContent($type, $dir) {
