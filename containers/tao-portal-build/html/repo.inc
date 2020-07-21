@@ -49,15 +49,15 @@
               $branch = $_POST['branch'];
             }
             $reporesult=getRepo($_POST['repo'],$branch);
-			createCron($_POST['repo'],$branch);
-            header('Location: /index.php?page=repo');
+            createCron($_POST['repo'],$branch);
+			header('Location: /index.php?page=repo');
           } else {
             header('Location: /index.php?page=repo&error=1');
           }
           break;
         case "Delete":
           $cmd1 = "rm -rf ".$customloc.$_POST['rm_repo'];
-          $cmd2 = "rm -rf ".$cronloc..$_POST['rm_repo']."-pull";
+          $cmd2 = "rm -rf ".$cronloc.$_POST['rm_repo']."-pull";
           shell_exec($cmd2);
           shell_exec($cmd1);
           header('Location: /index.php?page=repo');
