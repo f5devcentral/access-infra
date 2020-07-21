@@ -7,6 +7,7 @@ RUN apk add git
 RUN adduser -D -u 1000 -g 'www' www 
 RUN mkdir /www
 RUN mkdir /www/portal
+RUN mkdir /www/portal/cron-hold
 RUN mkdir /www/dev
 RUN mkdir /www/dev/custom
 RUN mkdir /www/master
@@ -108,6 +109,7 @@ COPY ./githubfilepull-solutions-master.sh /etc/periodic/1min/githubfilepull-solu
 COPY ./start_nginx.sh /start_nginx.sh
 COPY ./start_php-fpm.sh /start_php-fpm.sh
 COPY ./start_crond.sh /start_crond.sh
+COPY ./addhosts.sh /addhosts.sh
 COPY ./wrapper.sh /wrapper.sh
 RUN chmod 600 /etc/crontabs/root
 RUN chmod 655 /etc/periodic/1min/githubfilepull-labs-dev
@@ -118,6 +120,6 @@ RUN chmod 655 /etc/periodic/1min/githubfilepull-solutions-master
 RUN cd /www/master && git clone --single-branch https://github.com/f5devcentral/access-solutions solutions && git clone --single-branch https://github.com/f5devcentral/access-labs labs
 RUN cd /www/dev && git clone -b dev --single-branch https://github.com/f5devcentral/access-solutions solutions && git clone -b dev --single-branch https://github.com/f5devcentral/access-labs labs 
 
-RUN chmod +x /start_nginx.sh /start_php-fpm.sh /start_crond.sh /wrapper.sh
+RUN chmod +x /addhosts.sh /start_nginx.sh /start_php-fpm.sh /start_crond.sh /wrapper.sh
 
 CMD ["/wrapper.sh"]
