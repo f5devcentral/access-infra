@@ -15,8 +15,8 @@
                   <?php 
                     $master_ver = shell_exec('curl http://admportal.f5lab.local/check.php?repo=master');
                     $dev_ver = shell_exec('curl http://admportal.f5lab.local/check.php?repo=dev');
-                    echo "<tr><td rowspan='2' style='text-align: center; vertical-align: middle;'>v".$version."</td><td>Master</td><td>v".$master_ver."</td><td><a href='http://admportal.f5lab.local/redeploy.php?repo=master'><input id='repobutton' type='submit' name='submit' value='Redeploy'></a></tr>";
-                    echo "<tr><td>Dev</td><td>v".$dev_ver."</td><td><a href='http://admportal.f5lab.local/redeploy.php?repo=dev'><input id='repobutton' type='submit' name='submit' value='Redeploy'></a></tr>";
+                    echo "<tr><td rowspan='2' style='text-align: center; vertical-align: middle;'>v".$version."</td><td>Master</td><td>v".$master_ver."</td><td><a href='http://admportal.f5lab.local/redeploy.php?repo=master&portal=".$portal['host']."'><input id='repobutton' type='submit' name='submit' value='Redeploy'></a></tr>";
+                    echo "<tr><td>Dev</td><td>v".$dev_ver."</td><td><a href='http://admportal.f5lab.local/redeploy.php?repo=dev&portal=".$portal['host']."'><input id='repobutton' type='submit' name='submit' value='Redeploy'></a></tr>";
                   ?>
                 </table>
             </div>
