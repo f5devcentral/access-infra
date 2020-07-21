@@ -1,5 +1,9 @@
 #!/bin/sh
 
+/addhosts.sh
+
+sleep 2
+
 /start_crond.sh -D
 
 /start_php-fpm.sh -D

@@ -2,9 +2,22 @@
 #filtermenu {
   background: #000;
   margin: 0;
-  width: 25%;
+  width: 30%;
   padding: 0;
-  padding-right: 50px;
+  padding-right: 5px;
+  line-height: 1;
+  display: table-cell;
+  font-family: 'PT Sans', sans-serif;
+  text-align: right;
+  vertical-align: middle;
+}
+
+#settingsmenu {
+  background: #000;
+  margin: 0;
+  width: 5%;
+  padding: 0;
+  padding-right: 20px;
   line-height: 1;
   display: table-cell;
   font-family: 'PT Sans', sans-serif;
@@ -24,10 +37,74 @@
   font-size: 16px; 
 }
 
+#repoinput {
+  box-shadow:inset 0 0 5px 2px #ccc;
+  background: #fff;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+   height: 28px;
+  width: 50%;
+  padding: 2px; 
+  font-size: 14px; 
+}
+
+#repobranch {
+  box-shadow:inset 0 0 5px 2px #ccc;
+  background: #fff;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+   height: 28px;
+  width: 10%;
+  padding: 2px; 
+  font-size: 14px; 
+}
+
+#repobutton {
+   background: #3D94F6;
+   background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+   background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+   background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+   background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+   background-image: linear-gradient(to bottom, #3D94F6, #1E62D0);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   height: 28px;
+   line-height: 0px;
+   color: #FFFFFF;
+   font-family: Verdana;
+   width: 65px;
+   box-shadow: 1px 1px 10px 0px #ADADAD;
+   -webkit-box-shadow: 1px 1px 10px 0px #ADADAD;
+   -moz-box-shadow: 1px 1px 10px 0px #ADADAD;
+   text-shadow: 1px 1px 10px #000000;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
+}
+
+#repobutton:hover {
+   background: #3D94F6;
+   background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+   background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+   background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+   background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+   background-image: linear-gradient(to bottom, #3D94F6, #1E62D0);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   text-decoration: none;
+}
+
 #cssmenu {
   background: #000;
   margin: 0;
-  width: 75%;
+  width: 65%;
   padding: 0;
   line-height: 1;
   display: table-cell;

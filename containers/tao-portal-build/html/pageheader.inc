@@ -3,7 +3,7 @@
   <div style="display:table;width:100%;">
     <div id="cssmenu" >
       <ul>
-        <li class="active"><a href='./index.php?page=solution'><span>TeamAccess: <?php echo strtoupper($portal['host']); ?></span></a></li>
+        <li class="active"><a href='./index.php?page=solution'><span>Access: <?php echo strtoupper($portal['host']); ?></span></a></li>
         <?php
           switch ($portal['host']) {
             case "portal":
@@ -25,7 +25,10 @@
       <form action='/index.php'>
         <input id='filterinput' type='text' name='filter'>
         <input type='hidden' name='page' value='<?php echo $page; ?>'></i>
-      </form>      
+      </form>
     </div>
+    <div id="settingsmenu">      
+      <a href='./index.php?page=settings'><img style="vertical-align:middle" src="./img/settings.png" width="22px"></a>
+    </div>																												   
   </div>
   </header>

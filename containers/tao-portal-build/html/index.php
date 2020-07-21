@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
   // Environment Setup 
+  include('./env.inc');
   include('./mainFunc.inc');
   $portal=sitename();  // Sets array for hostname, fqdn & branch 
   $page = (isset($_GET['page']) ? $_GET['page'] : 'solution');
@@ -17,11 +18,14 @@
     case "solution":
       include('./content.inc');
       break;
-    case "newman":
-      include('./newman.inc');
+    case "launch":
+      include('./launch.inc');
       break;
     case "repo":
       include('./repo.inc');
+      break;
+    case "settings":
+      include('./settings.inc');
       break;
     default:
       $page='solution';

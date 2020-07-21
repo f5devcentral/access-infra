@@ -5,9 +5,9 @@
 <head>
   <!-- ===== Basic Info ===== -->
     <meta charset="utf-8">
-    <title>TeamAccess: <?php echo strtoupper($portal['host']); ?></title>
-    <meta name="description" content="TeamAccess: <?php echo strtoupper($portal['host'])." | ".$portal['fqdn']; ?> ">
-    <meta name="author" content="Team Access: Chas Lesley">
+    <title>Access: <?php echo strtoupper($portal['host']); ?></title>
+    <meta name="description" content="Access: <?php echo strtoupper($portal['host'])." | ".$portal['fqdn']; ?> ">
+    <meta name="author" content="Access: Chas Lesley">
   <!-- ===== Mobile Info ===== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- ===== CSS Includes ===== -->
