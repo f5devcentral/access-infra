@@ -10,7 +10,7 @@
             <div class="wrapper">
               <div class="intro">Updating Portal/DevPortal Container</div>
               <hr class="line-b">
-              <div class="lead">Using the "Redeploy" buttons from the table below will redeploy the Portal/Devportal container updating it to the latest code version. <br>Either the DEV or MASTER branch of the Portal/Devportal code can be selected. The branch selected will update <b><u>BOTH</u></b> the Portal/Devportal interfaces.<br><i><b>NOTE</b>: Custom repositories will <b><u>NOT</u></b> survive the redeployment as the container is ephemeral and will need to be re-added if necessary.</i></div><br>
+              <div class="lead">Using the "Redeploy" buttons from the table below will redeploy the Portal/Devportal container updating it to the latest code version. <br>Either the DEV or MASTER branch of the Portal/Devportal code can be selected. The branch selected will update <b><u>BOTH</u></b> the Portal/Devportal interfaces.<br><i><b>NOTE</b>: Custom repositories will <b><u>NOT</u></b> survive the redeployment as the container is ephemeral and will need to be re-added if necessary.</i><br><br><i><b>NOTE</b>: Updates will take a few seconds.</i></div><br>
                 <table id='repo' width='100%'><tr><th>Current Portal/Devportal Version</th><th>Branch Source</th><th>Version Available</th><th>Action</th></tr>
                   <?php 
                     $master_ver = shell_exec('curl http://admportal.f5lab.local/check.php?repo=master');
