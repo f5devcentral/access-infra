@@ -6,48 +6,48 @@
   },
   {
     "RequestType": "GET",
-    "RequestURL": "/aduser/get",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Get-ADUserAttr.ps1"
-  },
-  {
-    "RequestType": "GET",
-    "RequestURL": "/aduser/set",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Set-DriverLic.ps1"
-  },
-  {
-    "RequestType": "PATCH",
-    "RequestURL": "/aduser/password",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/PATCH/Set-ADUserPassword.ps1"
-  },
-  {
-    "RequestType": "GET",
-    "RequestURL": "/aduser/unlock",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Unlock-ADUser.ps1"
-  },
-  {
-    "RequestType": "GET",
-    "RequestURL": "/aduser/cert",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Get-ADUserCert.ps1"
-  },
-  {
-    "RequestType": "GET",
     "RequestURL": "/vulnerable",
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Get-ADUserVulnerable.ps1"
   },
   {
-    "RequestType": "POST",
-    "RequestURL": "/aduser/create",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/POST/Post-Create-ADUser.ps1"
+    "RequestType": "GET",
+    "RequestURL": "/user",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Get-ADUserAttr.ps1"
   },
   {
-    "RequestType": "GET",
-    "RequestURL": "/aduser/create",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Create-ADUser.ps1"
+    "RequestType": "PATCH",
+    "RequestURL": "/user",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Set-DriverLic.ps1"
+  },
+  {
+    "RequestType": "POST",
+    "RequestURL": "/user",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/POST/Post-Create-ADUser.ps1"
   },
   {
     "RequestType": "DELETE",
     "RequestURL": "/user",
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/DELETE/delete-user.ps1"
+  },
+  {
+    "RequestType": "PATCH",
+    "RequestURL": "/user/password",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/PATCH/Set-ADUserPassword.ps1"
+  },
+  {
+    "RequestType": "PATCH",
+    "RequestURL": "/user/unlock",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Unlock-ADUser.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/user/cert",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Get-ADUserCert.ps1"
+  },
+  {
+    "RequestType": "POST",
+    "RequestURL": "/user/delegation",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/POST/user-delegation-create.ps1"
   },
   {
     "RequestType": "GET",
@@ -68,11 +68,6 @@
     "RequestType": "DELETE",
     "RequestURL": "/addr/checkin",
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/DELETE/checkin-address.ps1"
-  },
-  {
-    "RequestType": "POST",
-    "RequestURL": "/aduser/delegation",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/POST/user-delegation-create.ps1"
   },
   {
     "RequestType": "POST",

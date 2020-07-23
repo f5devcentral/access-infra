@@ -10,13 +10,13 @@
             <div class="wrapper">
               <div class="intro">Updating Portal/DevPortal Container</div>
               <hr class="line-b">
-              <div class="lead">Using the "Redeploy" buttons from the table below will redeploy the Portal/Devportal container updating it to the latest code version. <br>Either the DEV or MASTER branch of the Portal/Devportal code can be selected. The branch selected will update <b><u>BOTH</u></b> the Portal/Devportal interfaces.<br><i><b>NOTE</b>: Custom repositories will <b><u>NOT</u></b> survive the redeployment as the container is ephemeral and will need to be re-added if necessary.</i></div><br>
-                <table id='repo' width='100%'><tr><th>Branch Source</th><th>Current Portal/Devportal Version</th><th>Version Available</th><th>Action</th></tr>
+              <div class="lead">Using the "Redeploy" buttons from the table below will redeploy the Portal/Devportal container updating it to the latest code version. <br>Either the DEV or MASTER branch of the Portal/Devportal code can be selected. The branch selected will update <b><u>BOTH</u></b> the Portal/Devportal interfaces.<br><i><b>NOTE</b>: Custom repositories will <b><u>NOT</u></b> survive the redeployment as the container is ephemeral and will need to be re-added if necessary.</i><br><i><b>NOTE</b>: Updates will take a few seconds to complete (~15s-20s).</i></div><br>
+                <table id='repo' width='100%'><tr><th>Current Portal/Devportal Version</th><th>Branch Source</th><th>Version Available</th><th>Action</th></tr>
                   <?php 
                     $master_ver = shell_exec('curl http://admportal.f5lab.local/check.php?repo=master');
                     $dev_ver = shell_exec('curl http://admportal.f5lab.local/check.php?repo=dev');
-                    echo "<tr><td>Master</td><td>v".$version."</td><td>v".$master_ver."</td><td><a href='http://admportal.f5lab.local/redeploy.php?repo=master'><input id='repobutton' type='submit' name='submit' value='Redeploy'></a></tr>";
-                    echo "<tr><td>Dev</td><td>v".$version."</td><td>v".$dev_ver."</td><td><a href='http://admportal.f5lab.local/redeploy.php?repo=dev'><input id='repobutton' type='submit' name='submit' value='Redeploy'></a></tr>";
+                    echo "<tr><td rowspan='2' style='text-align: center; vertical-align: middle; font-size:1.4em;'>v".$version."</td><td>Master</td><td>v".$master_ver."</td><td><a href='http://admportal.f5lab.local/redeploy.php?repo=master&portal=".$portal['host']."'><input id='repobutton' type='submit' name='submit' value='Redeploy'></a></tr>";
+                    echo "<tr><td>Dev</td><td>v".$dev_ver."</td><td><a href='http://admportal.f5lab.local/redeploy.php?repo=dev&portal=".$portal['host']."'><input id='repobutton' type='submit' name='submit' value='Redeploy'></a></tr>";
                   ?>
                 </table>
             </div>
