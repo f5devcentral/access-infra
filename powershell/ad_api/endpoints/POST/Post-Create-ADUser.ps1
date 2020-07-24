@@ -62,23 +62,31 @@ $Password = $newbody.Password
 #Write-Host " Password $Password"
 $email = $newbody.email
 #Write-Host " email $email"
+$app_spn = $newbody.app_spn
+#Write-Host " email $email"
 
 
-   if ($newbody.Username) {
+   if ($newbody.username) {
         New-ADUser `
         -SamAccountName $sAMAccountName `
 		-Name $sAMAccountName `
         -DisplayName $Name `
 	    -GivenName $GivenName `
 		-Surname $Surname `
-		-UserPrincipalName $UserPrincipalName `
+		-UserPrincipalName "$UserPrincipalName@f5lab.local"`
+		-ServicePrincipalNames $UserPrincipalName `
 		-Path "OU=$OU,DC=F5LAB,DC=LOCAL" `
 		-PasswordNeverExpires $True `
 		-ChangePasswordAtLogon $False `
 		-EmployeeNumber $employeeNumber `
         -Emailaddress $email `
-        -Description "F5 HTTP Connector created me" `
 		-Enabled $true
+		
+		if ($app_spn) {
+
+			Set-ADAccountControl -Identity $sAMAccountName -TrustedToAuthForDelegation $True
+			Set-ADUser -Identity $sAMAccountName -Add @{'msDS-AllowedToDelegateTo'= @("$app_spn")}
+		}
     }
    if ($newbody.Username) {
         Add-ADGroupMember `
@@ -94,9 +102,11 @@ $email = $newbody.email
             -Identity $sAMAccountName `
             -Reset `
             -NewPassword (ConvertTo-SecureString -AsPlainText "$Password" -Force)
-
+			
+		
+	
     
-        $Message = Get-ADUser -Identity $sAMAccountName -Properties * | Select-Object sAMAccountName, employeeNumber, userAccountControl
+        $Message = Get-ADUser -Identity $sAMAccountName -Properties * | Select-Object sAMAccountName, userAccountControl
     }
     else {
         $Message = Get-ADUser -Identity admin -Properties * | Select-Object sAMAccountName, DistinguishedName, Name, SID, UserPrincipalName, employeeNumber
@@ -104,3 +114,6 @@ $email = $newbody.email
 
 
 return $Message
+
+
+

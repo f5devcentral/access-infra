@@ -20,16 +20,11 @@
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/POST/Post-Create-ADUser.ps1"
   },
   {
-    "RequestType": "POST",
-    "RequestURL": "/user/delegation",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/POST/user-delegation-create.ps1"
-  },
-  {
     "RequestType": "DELETE",
     "RequestURL": "/user",
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/DELETE/delete-user.ps1"
   },
-    {
+  {
     "RequestType": "PATCH",
     "RequestURL": "/user",
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/PATCH/Patch-User.ps1"
