@@ -15,40 +15,31 @@
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Get-ADUserAttr.ps1"
   },
   {
-    "RequestType": "PATCH",
-    "RequestURL": "/user",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Set-DriverLic.ps1"
-  },
-  {
     "RequestType": "POST",
     "RequestURL": "/user",
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/POST/Post-Create-ADUser.ps1"
-  },
-  {
-    "RequestType": "DELETE",
-    "RequestURL": "/user",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/DELETE/delete-user.ps1"
-  },
-  {
-    "RequestType": "PATCH",
-    "RequestURL": "/user/password",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/PATCH/Set-ADUserPassword.ps1"
-  },
-  {
-    "RequestType": "PATCH",
-    "RequestURL": "/user/unlock",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Unlock-ADUser.ps1"
-  },
-  {
-    "RequestType": "GET",
-    "RequestURL": "/user/cert",
-    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Get-ADUserCert.ps1"
   },
   {
     "RequestType": "POST",
     "RequestURL": "/user/delegation",
     "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/POST/user-delegation-create.ps1"
   },
+  {
+    "RequestType": "DELETE",
+    "RequestURL": "/user",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/DELETE/delete-user.ps1"
+  },
+    {
+    "RequestType": "PATCH",
+    "RequestURL": "/user",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/PATCH/Patch-User.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/user/cert",
+    "RequestCommand": "c:/access-infra/powershell/ad_api/endPoints/GET/Get-ADUserCert.ps1"
+  },
+
   {
     "RequestType": "GET",
     "RequestURL": "/addr/available",
