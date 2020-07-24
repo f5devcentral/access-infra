@@ -205,25 +205,34 @@ else {
 		
 		$cert = get-content -path "c:\access-infra\$exportfile2" -Encoding Byte
 		$b64cert = [System.Convert]::ToBase64String($cert, 'InsertLineBreaks')
-		$content = "-----BEGIN CERTIFICATE-----`r`n" + $b64cert + "`r`n-----END CERTIFICATE-----"
-	
-	$jsoncert =1 | Select-Object -Property certificate
-	$jsoncert.certificate = $content
-	
-
-	$content | Out-File -FilePath "c:\access-infra\$exportfile2" -Encoding ASCII
-	
-
-	$jsoncert =1 | Select-Object -Property certificate
-	$jsoncert.certificate = $content	
 		
-		$Message = $jsoncert
 		
+		if (!$b64cert) {
+		
+			$status = "Fail"
+			$jsonresponse = New-Object -TypeName psobject
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name cause -Value "No Cert associted with user"
+			$Message = $jsonresponse | Select-Object status, cause
+		
+		} else {
+		
+			$content = "-----BEGIN CERTIFICATE-----`r`n" + $b64cert + "`r`n-----END CERTIFICATE-----"
+			$jsoncert =1 | Select-Object -Property certificate
+			$jsoncert.certificate = $content
+			$content | Out-File -FilePath "c:\access-infra\$exportfile2" -Encoding ASCII
+			$jsoncert =1 | Select-Object -Property certificate
+			$jsoncert.certificate = $content		
+			$Message = $jsoncert
+	}	
 
 		
     } Else {
-        write-warning "no user or contact AD object found with your criteria : $($searchentry)"
-        return 
+			$status = "Fail"
+			$jsonresponse = New-Object -TypeName psobject
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name cause -Value "User does not exist"
+			$Message = $jsonresponse | Select-Object status, cause
     }
 
 	
