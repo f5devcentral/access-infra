@@ -12,33 +12,6 @@ param(
     $Body
 )
 
-# This section Parses the RequestArgs Parameter
-<#
-if ($RequestArgs -like '*&*') {
-    # Split the Argument Pairs by the '&' character
-    $ArgumentPairs = $RequestArgs.split('&')
-    $RequestObj = New-Object System.Object
-    foreach ($ArgumentPair in $ArgumentPairs) {
-        # Split the Pair data by the '=' character
-        $Property, $Value = $ArgumentPair.split('=')
-        $RequestObj | Add-Member -MemberType NoteProperty -Name $Property -value $Value
-    }
-
-    # Edit the Area below to utilize the Values of the new Request Object
-    $ProcessName = $RequestObj.Name
-    $WindowTitle = $RequestObj.MainWindowTitle
-    if ($RequestObj.Name) {
-        $Message = Get-Process -Name $ProcessName | Where-Object {$_.Name -like "*$ProcessName*"} | Select-Object ProcessName, Id, MainWindowTitle
-    }
-    else {
-        $Message = Get-Process -Name $WindowTitle | Where-Object {$_.WindowTitle -like "*$WindowTitle*"} | Select-Object ProcessName, Id, MainWindowTitle
-    }
-}
-else {
-    $Property, $ProcessName = $RequestArgs.split("=")
-    $Message = Get-Process -Name $ProcessName | Select-Object ProcessName, Id, MainWindowTitle
-}
-#>
 
 # This Section Parses the body Parameter
 # You will need to customize this section to consume the Json correctly for your application
@@ -48,14 +21,14 @@ $sAMAccountName = $newbody.Username
 #Write-Host " UserName $sAMAccountName"
 $employeeNumber = $newbody.employeeNumber
 #Write-Host " Enumber $employeeNumber"
-$Name = $newbody.Firstname + " " + $newbody.Lastname
+$Name = $newbody.GivenName + " " + $newbody.Surname
 #Write-Host " Full Name $Name"
-$GivenName = $newbody.Firstname
+$GivenName = $newbody.GivenName
 #Write-Host " Firstname $GivenName"
-$Surname = $newbody.Lastname
+$Surname = $newbody.Surname
 #Write-Host " Lastname $Surname"
-$UserPrincipalName = $newbody.UPN
-#Write-Host " UPN $UserPrincipalName"
+$UserPrincipalName = $newbody.UserPrincipalName
+Write-Host " UPN $UserPrincipalName"
 $OU = $newbody.OU
 #Write-Host " OU $OU"
 $Password = $newbody.Password
@@ -70,11 +43,10 @@ $app_spn = $newbody.app_spn
         New-ADUser `
         -SamAccountName $sAMAccountName `
 		-Name $sAMAccountName `
-        -DisplayName $Name `
-	    -GivenName $GivenName `
+		-DisplayName $Name `
+		-GivenName $GivenName `
 		-Surname $Surname `
-		-UserPrincipalName "$UserPrincipalName@f5lab.local"`
-		-ServicePrincipalNames $UserPrincipalName `
+		-UserPrincipalName "$UserPrincipalName" `
 		-Path "OU=$OU,DC=F5LAB,DC=LOCAL" `
 		-PasswordNeverExpires $True `
 		-ChangePasswordAtLogon $False `
@@ -83,7 +55,11 @@ $app_spn = $newbody.app_spn
 		-Enabled $true
 		
 		if ($app_spn) {
-
+		  
+		
+			$SPN = $UserPrincipalName -split "@"
+			Write-Host "SPN :" $SPN[0]
+			Set-ADUser -Identity $sAMAccountName -ServicePrincipalNames @{Add=$SPN[0]}
 			Set-ADAccountControl -Identity $sAMAccountName -TrustedToAuthForDelegation $True
 			Set-ADUser -Identity $sAMAccountName -Add @{'msDS-AllowedToDelegateTo'= @("$app_spn")}
 		}

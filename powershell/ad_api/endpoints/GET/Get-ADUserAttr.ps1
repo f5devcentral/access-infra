@@ -22,19 +22,19 @@ if ($RequestArgs -like '*&*') {
     }
 
     # Edit the Area below to utilize the Values of the new Request Object
-    $sAMAccountName = $RequestObj.Identity
+    $sAMAccountName = $RequestObj.username
     if ($RequestObj.Identity) {
-        $Message = Get-ADUser -Identity $sAMAccountName -Properties * | Select-Object DistinguishedName, Name, SID, UserPrincipalName, userAccountControl
+        $Message = Get-ADUser -Identity $sAMAccountName -Properties * | Select-Object DistinguishedName, Name, UserPrincipalName, userAccountControl
     }
     else {
-        $Message = Get-ADUser -Identity Administrator -Properties * | Select-Object DistinguishedName, Name, SID, UserPrincipalName, userAccountControl
+        $Message = Get-ADUser -Identity Administrator -Properties * | Select-Object DistinguishedName, Name, UserPrincipalName, userAccountControl
     }
 }
 else {
     $Property, $sAMAccountName = $RequestArgs.split("=")
     $userexist = Get-ADUser -Identity $sAMAccountName -Properties *
 	if ($userexist) {
-		$Message = Get-ADUser -Identity $sAMAccountName -Properties * | Select-Object sAMAccountName, DistinguishedName, Name, SID, UserPrincipalName, employeeNumber, userAccountControl, memberOf
+		$Message = Get-ADUser -Identity $sAMAccountName -Properties * | Select-Object sAMAccountName, DistinguishedName, Name, GivenName, Surname, UserPrincipalName, employeeNumber, mail, userAccountControl, memberOf
 	}
 	else {
 		$Message = "User Not found"
