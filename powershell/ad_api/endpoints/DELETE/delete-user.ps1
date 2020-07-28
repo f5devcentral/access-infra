@@ -7,22 +7,31 @@
         This will return a status message of Success or Failure
 #>
 
+
 param(
-    $RequestArgs
+    $body
     
 )
- 
- if (!$RequestArgs) {
-  return "useridentity parameter must be supplied in query string. Example https://10.1.20.6/user?useridentity="
+
+# This Section Parses the body Parameter
+# You will need to customize this section to consume the Json correctly for your application
+$newbody = $body | ConvertFrom-Json
+
+
+
+$user = $newbody.username
+Write-Host "username: $user"
+
+
+
+ if (!$user) {
+  return "username key/value pair must be supplied "
 
  }
  
  
-# splits key from value
-$Property, $name = $RequestArgs.split("=")
-
 # determines if user account exists 
-$user = $(try {Get-ADUser $name} catch {$null})
+$user = $(try {Get-ADUser $user} catch {$null})
 
 
 If ($user -ne $Null) { 
