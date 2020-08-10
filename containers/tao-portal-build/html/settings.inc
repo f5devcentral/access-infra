@@ -36,9 +36,9 @@
                 foreach ($cron_jobs as $value) {
                   $target = explode("-", substr($value,15));
                   if (in_array($value,$cron_dir)) {
-                    echo "<div style='float:left; width:60%;'>Auto-Update for Access-Infra/".$target[0].":".$target[1]." Repository: </div><div style='float:left; width:40%;'><label class='switch'><input name='".$value."' class='switch-input' type='checkbox' checked/><span class='switch-label' data-on='Enabled' data-off='Disabled'></span><span class='switch-handle'></span><br></label></div>";
+                    echo "<div style='float:left; width:60%;'>Auto-Update for Access-".$target[0].":".$target[1]." Repository: </div><div style='float:left; width:40%;'><label class='switch'><input name='".$value."' class='switch-input' type='checkbox' checked/><span class='switch-label' data-on='Enabled' data-off='Disabled'></span><span class='switch-handle'></span><br></label></div>";
                   } else {
-                    echo "<div style='float:left; width:60%;'>Auto-Update for Access-Infra/".$target[0].":".$target[1]." Repository: </div><div style='float:left; width:40%;'><label class='switch'><input name='".$value."' class='switch-input' type='checkbox'/><span class='switch-label' data-on='Enabled' data-off='Disabled'></span><span class='switch-handle'></span><br></label></div>";
+                    echo "<div style='float:left; width:60%;'>Auto-Update for Access-".$target[0].":".$target[1]." Repository: </div><div style='float:left; width:40%;'><label class='switch'><input name='".$value."' class='switch-input' type='checkbox'/><span class='switch-label' data-on='Enabled' data-off='Disabled'></span><span class='switch-handle'></span><br></label></div>";
                   }
                 }
               ?>
