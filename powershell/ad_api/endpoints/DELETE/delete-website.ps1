@@ -20,7 +20,7 @@ import-module webadministration
 $newbody = $body | ConvertFrom-Json
 
 $site_name = $newbody.site_name
-#Write-Host "Sitename: $site_name"
+Write-Host "Sitename: $site_name"
 
 
 $websitebase = "c:\access-infra\websites"
@@ -32,8 +32,13 @@ $websitebase = "c:\access-infra\websites"
 			 Remove-WebAppPool -Name $site_name 
 			
 			 Remove-Item $websitebase\$site_name -recurse -Force
+			 
 				
  }
+ 
+  if(Test-Path $websitebase\$site_name) {
+   Remove-Item $websitebase\$site_name -recurse -Force
+  }
 
 
 

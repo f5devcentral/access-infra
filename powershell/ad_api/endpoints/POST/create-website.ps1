@@ -238,7 +238,7 @@ Switch ($template_number)
     $jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
 	$jsonresponse| Add-Member -MemberType NoteProperty -Name authentication -Value $authentication
  
- 	$Message = $jsonresponse | Select-Object status, site_name, http_port, https_port, computer_ip, authentication
+ 	$message = $jsonresponse | Select-Object status, site_name, http_port, https_port, computer_ip, authentication
  
     
  } else {
@@ -253,7 +253,7 @@ Switch ($template_number)
     $jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
 	$jsonresponse| Add-Member -MemberType NoteProperty -Name authentication -Value $authentication
  
- 	$Message = $jsonresponse | Select-Object status, site_name, http_port, https_port, computer_ip, authentication
+ 	$message = $jsonresponse | Select-Object status, site_name, http_port, https_port, computer_ip, authentication
  }
  
  return $message
