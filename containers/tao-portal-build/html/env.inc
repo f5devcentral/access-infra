@@ -1,5 +1,5 @@
 <?php
-  $version = "1.10";
+  $version = "1.11";
   $webloc = "/www/";
   $customloc = "/www/dev/custom/";
   $cronloc = "/etc/periodic/1min/";
