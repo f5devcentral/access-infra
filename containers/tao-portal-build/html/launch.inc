@@ -8,7 +8,8 @@
   $launch = findLaunch($webloc.$branch."/".$repo."s/".$resource);
 ?>
 <!-----------------start-content-box------------------->
-
+ 
+  <div id="load"></div>
   <section class="content-box box-4">
     <div class="zerogrid" style="width: 100%;">
       <div class="row wrap-box">

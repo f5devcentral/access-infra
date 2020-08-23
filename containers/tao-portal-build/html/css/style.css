@@ -23,6 +23,8 @@
   color:none;
 }
 
+#load{ width:100%; height:100%; position:fixed; z-index:9999; background:url("./img/loading.gif") no-repeat center center rgba(0,0,0,0.25) }
+
 #repo table { width:100%; }
 #repo td, th { border: 1px solid #ddd; padding: 8px; text-align: center; }
 #repo tr:nth-child(even){background-color: #f2f2f2;}
