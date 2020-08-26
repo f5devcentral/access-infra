@@ -10,6 +10,7 @@
 <!-----------------start-content-box------------------->
  
   <div id="load"></div>
+  <div id="content">
   <section class="content-box box-4">
     <div class="zerogrid" style="width: 100%;">
       <div class="row wrap-box">
@@ -49,4 +50,5 @@
       </div>
     </div>
   </section>
+  </div>
 <!-----------------end-content-box------------------->
