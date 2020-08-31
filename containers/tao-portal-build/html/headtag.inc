@@ -20,6 +20,20 @@
   <!-- ===== Scripts ===== -->
     <script src="./js/jquery1111.min.js" type="text/javascript"></script>
     <script src="./js/script.js"></script>
+	<script>
+	  document.onreadystatechange = function () {
+        var state = document.readyState
+        if (state == 'interactive') {
+          document.getElementById('contents').style.visibility="hidden";
+        } else if (state == 'complete') {
+          setTimeout(function(){
+            document.getElementById('interactive');
+            document.getElementById('load').style.visibility="hidden";
+            document.getElementById('contents').style.visibility="visible";
+          },1000);
+        }
+      }
+	</script>
   <!-- ===== Browser FixUp ===== -->
     <!--[if lt IE 8]>
       <div style=' clear: both; text-align:center; position: relative;'>

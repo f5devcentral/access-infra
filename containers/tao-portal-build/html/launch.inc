@@ -8,12 +8,14 @@
   $launch = findLaunch($webloc.$branch."/".$repo."s/".$resource);
 ?>
 <!-----------------start-content-box------------------->
-
+ 
+  <div id="load"></div>
+  <div id="contents">
   <section class="content-box box-4">
     <div class="zerogrid" style="width: 100%;">
       <div class="row wrap-box">
         <div class="zerogrid-b">
-          <div class="header">
+          <div class="header" style="margin-left: 40px;">
             <div class="wrapper">
               <div class="intro">Processing Postman/Newman Scripts<span style="font-size:.6em"> (Provided through <a class='repo' href='https://github.com/teamaccessonline' target='_blank'>Access Github Repo</a>)</span></div>
               <hr class="line-b">
@@ -48,4 +50,5 @@
       </div>
     </div>
   </section>
+  </div>
 <!-----------------end-content-box------------------->

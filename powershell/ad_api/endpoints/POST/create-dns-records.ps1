@@ -41,36 +41,54 @@ $hostname = $fqdn_split[0]
 $zone = $fqdn_split[1] + "."  + $fqdn_split[2]
 
 
-# Creates the A record
-add-DnsServerResourceRecordA -Name "$hostname" -ZoneName "$zone"  -IPv4Address "$computer_ip"  -ComputerName "dc1.f5lab.local"
- 
- #Sets the error message based on success or failure 
- 
+Resolve-DnsName -Name "$fqdn" -Server "dc1.f5lab.local"
  if ($?) {
- 	$status = "Success"
-    $jsonresponse = New-Object -TypeName psobject
-	$jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
-	$jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
-    $jsonresponse| Add-Member -MemberType NoteProperty -Name hostname -Value $hostname
-    $jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $zone
-    $jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
  
- 	$Message = $jsonresponse | Select-Object status, record_type, hostname, zone, computer_ip
- 
-    
+		$status = "exists"
+		$jsonresponse = New-Object -TypeName psobject
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name hostname -Value $hostname
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $zone
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
+	 
+		$message = $jsonresponse | Select-Object status, record_type, hostname, zone, computer_ip
+ #Sets the error message based on success or failure 
  } else {
+     
+			# Creates the A record
+		add-DnsServerResourceRecordA -Name "$hostname" -ZoneName "$zone"  -IPv4Address "$computer_ip"  -ComputerName "dc1.f5lab.local"
+		
+		if ($?) {
+			$status = "Success"
+			$jsonresponse = New-Object -TypeName psobject
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name hostname -Value $hostname
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $zone
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
+		 
+			$Message = $jsonresponse | Select-Object status, record_type, hostname, zone, computer_ip
+		 
+			
+		 } else {
 
 
- $status = "Fail"
- $jsonresponse = New-Object -TypeName psobject
- $jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
- $jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
- $jsonresponse| Add-Member -MemberType NoteProperty -Name hostname -Value $hostname
- $jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $zone
- $jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
+		 $status = "Fail"
+		 $jsonresponse = New-Object -TypeName psobject
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name hostname -Value $hostname
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $zone
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
+		 
+		 $Message = $jsonresponse | Select-Object status, record_type, hostname, zone, computer_ip
+		 }
+			
+}
+			
  
- $Message = $jsonresponse | Select-Object status, record_type, hostname, zone, computer_ip
- }
+ 
  
  return $message
 }
@@ -82,40 +100,54 @@ $ip_octets = $computer_ip.Split(".")
 $reverse_zone = $ip_octets[2] + "." + $ip_octets[1] + "." + $ip_octets[0] + ".in-addr.arpa"
 
 
+Resolve-DnsName -Name "$computer_ip" -Server "dc1.f5lab.local"
 
-
-#Create the PTR Record
-Add-DnsServerResourceRecordPtr -Name $ip_octets[3] -ZoneName $reverse_zone -PtrDomainName $fqdn -ComputerName "dc1.f5lab.local"
-
-
- #Sets the error message based on success or failure of IP assignment
+	if ($?) {
  
- if ($?) {
- 	$status = "Success"
-    $jsonresponse = New-Object -TypeName psobject
-	$jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
-	$jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
-    $jsonresponse| Add-Member -MemberType NoteProperty -Name fqdn -Value $fqdn
-    $jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $reverse_zone
-    $jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
- 
- 	$Message = $jsonresponse | Select-Object status, record_type, fqdn, zone, computer_ip
- 
-    
- } else {
+		$status = "exists"
+		$jsonresponse = New-Object -TypeName psobject
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name fqdn -Value $fqdn
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $reverse_zone
+		$jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
+	 
+		$message = $jsonresponse | Select-Object status, record_type, fqdn, zone, computer_ip
+ #Sets the error message based on success or failure 
+	} else {
+	
+		#Create the PTR Record
+		Add-DnsServerResourceRecordPtr -Name $ip_octets[3] -ZoneName $reverse_zone -PtrDomainName $fqdn -ComputerName "dc1.f5lab.local"
 
 
- $status = "Fail"
- $jsonresponse = New-Object -TypeName psobject
- $jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
- $jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
- $jsonresponse| Add-Member -MemberType NoteProperty -Name fqdn -Value $fqdn
- $jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $reverse_zone
- $jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
+		 #Sets the error message based on success or failure of IP assignment
  
- $Message = $jsonresponse | Select-Object status, record_type, fqdn, zone, computer_ip
+		 if ($?) {
+			$status = "Success"
+			$jsonresponse = New-Object -TypeName psobject
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name fqdn -Value $fqdn
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $reverse_zone
+			$jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
+		 
+			$Message = $jsonresponse | Select-Object status, record_type, fqdn, zone, computer_ip
+		 
+			
+		 } else {
+
+
+		 $status = "Fail"
+		 $jsonresponse = New-Object -TypeName psobject
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name status -Value $status
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name record_type -Value $record_type
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name fqdn -Value $fqdn
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name zone -Value $reverse_zone
+		 $jsonresponse| Add-Member -MemberType NoteProperty -Name computer_ip -Value $computer_ip
+		 
+		 $Message = $jsonresponse | Select-Object status, record_type, fqdn, zone, computer_ip
+		 }
  }
- 
  return $message
 }
  
