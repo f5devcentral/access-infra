@@ -126,8 +126,10 @@
       $output[$value]['num'] = $value;                // number
       $output[$value]['title'] = substr($lines[0],strpos($lines[0], ':')+2);  // title
       $output[$value]['descr'] = $lines[3];             // description
-      $output[$value]['keywords'] = substr($lines[5],10);  // keywords
-      $output[$value]['type'] = substr($lines[7],4);   // type (single/multi)
+      preg_match('/^Keywords:[^\r\n]*/m', $lines, $kw_match);	  
+      $output[$value]['keywords'] = substr($kw_match[0],10);  // keywords
+      preg_match('/^DC:[^\r\n]*/m', $lines, $dc_match);	  
+      $output[$value]['type'] = substr($dc_match[0],4);   // type (single/multi)
     }
     return $output;
   }
