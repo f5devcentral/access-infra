@@ -120,15 +120,16 @@
 
   function getFileData($type, $dir) {
     $file_data=findContent($type, $dir);
+	natsort($file_data);
     foreach ($file_data as $key => $value) {
       $rst_file = $dir."/".$value."/".$type.".rst";
       $lines = file($rst_file);
       $output[$value]['num'] = $value;                // number
       $output[$value]['title'] = substr($lines[0],strpos($lines[0], ':')+2);  // title
       $output[$value]['descr'] = $lines[3];             // description
-      preg_match('/^Keywords:[^\r\n]*/m', $lines, $kw_match);	  
+      $kw_match=array_values(preg_grep('/^Keywords:[^\r\n]*/m', $lines));	  
       $output[$value]['keywords'] = substr($kw_match[0],10);  // keywords
-      preg_match('/^DC:[^\r\n]*/m', $lines, $dc_match);	  
+      $dc_match=array_values(preg_grep('/^DC:[^\r\n]*/m', $lines));	  
       $output[$value]['type'] = substr($dc_match[0],4);   // type (single/multi)
     }
     return $output;
