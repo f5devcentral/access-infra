@@ -3,12 +3,12 @@
   $title= urldecode($_GET['title']);
 
   // Variables for Text Rendering
-  $len = 17;                     // Per row string total length   
-  $pad = 21;                     // Per row padded string total length 
+  $len = 20;                     // Per row string total length   
+  $pad = 24;                     // Per row padded string total length 
   $row_height = 120;             // Row Height 
   $num_rows = 6;                 // Number of rendered rows allowed 
   $cordX = 280;                  // Left margin of textbox (based on image)  
-  $font_size = 100;              // Font size of text
+  $font_size = 90;              // Font size of text
   $font = './fonts/calibri.ttf'; // Assigned Font      
   $angle = 0;                    // Angle of text 
   $top_margin = 140;             // Top magin of textbox (based on image)

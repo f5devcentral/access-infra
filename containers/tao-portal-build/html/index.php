@@ -15,11 +15,16 @@
   echo "<section id='container'><div class='wrap-container'>";
   switch ($page) {
     case "lab":
+      include('./labs.inc');
+      break;
     case "solution":
-      include('./content.inc');
+      include('./solutions.inc');
       break;
     case "launch":
       include('./launch.inc');
+      break;
+    case "class":
+      include('./classes.inc');
       break;
     case "repo":
       include('./repo.inc');
