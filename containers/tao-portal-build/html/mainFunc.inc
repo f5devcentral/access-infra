@@ -93,16 +93,27 @@
           for ($i = 4; $i <= $x; $i++) {
             if ($n==0) {
               if ( is_numeric(substr($clines[$i], 0, 1)) ) {
+                $cap = 0;
                 $classnum = substr($clines[$i],0,3);  // series
                 $title = substr($clines[$i],strpos($clines[$i], '-')+2);  // title
                 $n = 1;  
               }
             } else {
+              if ( startsWith($clines[$i], "   :caption") ) {
+                $version = substr($clines[$i], 21, -8);  // version
+                $cap = 1;
+              } 
               if ( startsWith($clines[$i], "   module") ) {
                 $module = substr($clines[$i],3,strpos($clines[$i], '/')-3);  // module
-                $classes[$module]['classnum'] = $classnum;
-                $classes[$module]['title'] = $title;
-                $n = 0;
+                if ($cap == 1) {
+                  $classes[$module]['classnum'] = $classnum."-v".$version;
+                  $classes[$module]['title'] = $title;
+                  $n = 1;
+                } else {
+                  $classes[$module]['classnum'] = $classnum;
+                  $classes[$module]['title'] = $title;
+                  $n = 0;
+                }
               }
             }
           } 
@@ -122,8 +133,13 @@
                       $lrst_file = $mdir."/".$mvalue."/".$lvalue;
                       $llines = file($lrst_file);
                       $labs[$classes[$mvalue]['classnum']."-".$labnum]['title'] = substr($llines[0],strpos($llines[0], ':')+2);  // title
-                      $what=$classes[$mvalue]['classnum']."-".$labnum;
-                      $alllabs[$what]['title'] = substr($llines[0],strpos($llines[0], ':')+2);  // title
+                      $pfile = $dir.$cvalue."/".$mvalue."/postman/".$cvalue."-".$mvalue."-".strtolower($labnum)."-create.postman_collection.json";
+                      if (file_exists($pfile)) {
+                        $labs[$classes[$mvalue]['classnum']."-".$labnum]['postman'] = "y";
+                      } else {
+                        $labs[$classes[$mvalue]['classnum']."-".$labnum]['postman'] = "n";
+                      }
+                      $alllabs[$classes[$mvalue]['classnum']."-".$labnum]['title'] = substr($llines[0],strpos($llines[0], ':')+2);  // title
                     }
                   }
                 }
@@ -144,7 +160,6 @@
         return $alllabs;
         break;
     }
-
   }
 
   function findSolContent($type, $dir) {
@@ -269,7 +284,7 @@
     return $result;
   }
 
-  function launchtile($branch,$page,$num,$title,$descr,$type) {
+  function launchsoltile($branch,$page,$num,$title,$descr,$type) {
     echo "<div class='col-1-4'><div class='portfolio-box'><div class='portfolio-box-img'>";
     echo "<img src='./image.php?title=".$title."' width='95%' class='img-responsive' alt=''><p class='portfolio-box-p'>".ucfirst($num)."</p></div>";
     echo "<div class='portfolio-box-caption' style='background:rgba(45, 154, 225,.9);'><div class='portfolio-box-caption-content'>";
@@ -277,11 +292,11 @@
     echo "<table width='100%' style='padding: 0; border:0px;'>";
     if (strstr($type, 'multi') === false) {
       echo "<tr style='padding: 0; border:0px;'><td width='100%'>Single DC</td></tr>";
-      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
+      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launchsol&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchsol&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
     } else { 
       echo "<tr style='padding: 0; border:0px;'><td width='50%'>Single DC</td><td colspan='2'width='50%'>Multi DC</td></tr>";
-      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td>";
-      echo "<td><ul class='list-inline'><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
+      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launchsol&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchsol&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td>";
+      echo "<td><ul class='list-inline'><li><a href='./index.php?page=launchsol&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchsol&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
     } 
     echo "</table>";
     echo "</div></div></div></div></div>";
@@ -295,13 +310,33 @@
     echo "<table width='100%' style='padding: 0; border:0px;'>";
     if (strstr($type, 'multi') === false) {
       echo "<tr style='padding: 0; border:0px;'><td width='100%'>Single DC</td></tr>";
-      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
+      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
     } else { 
       echo "<tr style='padding: 0; border:0px;'><td width='50%'>Single DC</td><td colspan='2'width='50%'>Multi DC</td></tr>";
-      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td>";
-      echo "<td><ul class='list-inline'><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launch&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
+      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td>";
+      echo "<td><ul class='list-inline'><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
     } 
     echo "</table>";
     echo "</div></div></div></div></div>";
   }
+
+  function launchclasstile($branch,$class,$module,$num,$title,$type) {
+    $lab = explode("lab", strtolower($num));
+    $labnum = "lab".$lab[1]; 
+    echo "<div class='col-1-4'><div class='portfolio-box'><div class='portfolio-box-img'>";
+    echo "<img src='./image.php?title=".$title."' width='95%' class='img-responsive' alt=''><p class='portfolio-box-p'>".ucfirst($num)."</p></div>";
+    if (strstr($type, 'y') === false) {
+      echo "<div class='portfolio-box-caption' style='background:rgba(171, 183, 183, 1);'><div class='portfolio-box-caption-content'>";
+      echo "<div class='project-des'><p>Refer to Lab01 of this Class or Lab series for setup instructions. If this is Lab01, there are no setup requirements.</p></div><div class='project-social'>";
+      echo "<table width='100%' style='padding: 0; border:0px;'>";
+    } else { 
+      echo "<div class='portfolio-box-caption' style='background:rgba(45, 154, 225,.9);'><div class='portfolio-box-caption-content'>";
+      echo "<div class='project-des'><p>Create or Delete initial setup for this lab environment with the buttons below.</p></div><div class='project-social'>";
+      echo "<table width='100%' style='padding: 0; border:0px;'>";
+      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launchlab&branch=".$branch."&class=".$class."&module=".$module."&repo=lab&resource=".$labnum."&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchlab&branch=".$branch."&class=".$class."&module=".$module."&repo=lab&resource=".$labnum."&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
+    } 
+    echo "</table>";
+    echo "</div></div></div></div></div>";
+  }
+
 ?>

@@ -20,12 +20,12 @@
   if ( (isset($_GET['filter'])) && ($_GET['filter'] != '') ) {
     foreach ($data as $row) {
       if (strstr($row['keywords'], $_GET['filter']) !== false) {
-       launchtile($portal['branch'],$page,$row['num'],urlencode($row['title']),$row['descr'],$row['type']);
+       launchsoltile($portal['branch'],$page,$row['num'],urlencode($row['title']),$row['descr'],$row['type']);
       }
    }
   } else {
     foreach ($data as $row) {
-      launchtile($portal['branch'],$page,$row['num'],urlencode($row['title']),$row['descr'],$row['type']);
+      launchsoltile($portal['branch'],$page,$row['num'],urlencode($row['title']),$row['descr'],$row['type']);
     }
   }
   echo "</div>";

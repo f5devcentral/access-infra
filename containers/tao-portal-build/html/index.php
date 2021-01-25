@@ -20,8 +20,11 @@
     case "solution":
       include('./solutions.inc');
       break;
-    case "launch":
-      include('./launch.inc');
+    case "launchlab":
+      include('./launchlab.inc');
+      break;
+    case "launchsol":
+      include('./launchsol.inc');
       break;
     case "class":
       include('./classes.inc');

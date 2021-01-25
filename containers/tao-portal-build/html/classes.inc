@@ -20,11 +20,11 @@
   foreach ($data as $k => $v) {
     echo "<div class='row'><div class='col-full' style='background: #3c5b74; color: #ffffff; padding: 6px 0px 6px 8px; margin-bottom:8px; font-size: 1.4em; '>".$k." Series: ".$data[$k]['title']."</div></div>";
     foreach ($data[$k] as $ck => $cv) {
-      if ( is_numeric($ck) ) {
+      if ( is_numeric(substr($ck,0,3)) ) {
         echo "<div class='row' style='display: flex;'>";
         echo "<div style='width:10%; display: flex; flex: 1 0 auto; align-items: center; align-content: center; justify-content: center;float:left; text-align:center; background: #8a9cab; color:#ffffff; font-size:1.4em;'>".$ck."<br>".$data[$k][$ck]['title']."</div><div  style='width: 90%; float:left;'>"; 
         foreach ($data[$k][$ck]['labs'] as $lk => $lv) {
-          launchlabtile($portal['branch'],$page,$lk,urlencode($data[$k][$ck]['labs'][$lk]['title']),"maybe requirements","single");
+          launchclasstile($portal['branch'],$data[$k]['designation'],$data[$k][$ck]['designation'],$lk,urlencode($data[$k][$ck]['labs'][$lk]['title']),$data[$k][$ck]['labs'][$lk]['postman']);
         }
         echo "</div></div>";
         echo "<div class='row'><hr></div>";
