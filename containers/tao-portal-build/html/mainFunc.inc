@@ -1,4 +1,4 @@
-<?php
+ <?php
   //  Primary Functions 
   function sitename() {
     $host=explode(".", $_SERVER['HTTP_HOST']);
@@ -100,7 +100,8 @@
               }
             } else {
               if ( startsWith($clines[$i], "   :caption") ) {
-                $version = substr($clines[$i], 21, -8);  // version
+                $endtrim = -1 * (strlen($clines[$i]) - strpos($clines[$i], "Labs:") +1);
+                $version = substr($clines[$i], 21, $endtrim);  // version
                 $cap = 1;
               } 
               if ( startsWith($clines[$i], "   module") ) {
@@ -140,6 +141,7 @@
                         $labs[$classes[$mvalue]['classnum']."-".$labnum]['postman'] = "n";
                       }
                       $alllabs[$classes[$mvalue]['classnum']."-".$labnum]['title'] = substr($llines[0],strpos($llines[0], ':')+2);  // title
+                      $alllabs[$classes[$mvalue]['classnum']."-".$labnum]['postman'] = $labs[$classes[$mvalue]['classnum']."-".$labnum]['postman'];  // postman
                     }
                   }
                 }
@@ -302,19 +304,18 @@
     echo "</div></div></div></div></div>";
   }
 
-  function launchlabtile($branch,$page,$num,$title,$descr,$type) {
+  function launchlabtile($branch,$labnum,$title,$type) {
     echo "<div class='col-1-4'><div class='portfolio-box'><div class='portfolio-box-img'>";
-    echo "<img src='./image.php?title=".$title."' width='95%' class='img-responsive' alt=''><p class='portfolio-box-p'>".ucfirst($num)."</p></div>";
-    echo "<div class='portfolio-box-caption' style='background:rgba(45, 154, 225,.9);'><div class='portfolio-box-caption-content'>";
-    echo "<div class='project-des'><p>".$descr."</p></div><div class='project-social'>";
-    echo "<table width='100%' style='padding: 0; border:0px;'>";
-    if (strstr($type, 'multi') === false) {
-      echo "<tr style='padding: 0; border:0px;'><td width='100%'>Single DC</td></tr>";
-      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
+    echo "<img src='./image.php?title=".$title."' width='95%' class='img-responsive' alt=''><p class='portfolio-box-p'>".ucfirst($labnum)."</p></div>";
+    if (strstr($type, 'y') === false) {
+      echo "<div class='portfolio-box-caption' style='background:rgba(171, 183, 183, 1);'><div class='portfolio-box-caption-content'>";
+      echo "<div class='project-des'><p>Refer to Lab01 of this Class or Lab series for setup instructions. If this is Lab01, there are no setup requirements.</p></div><div class='project-social'>";
+      echo "<table width='100%' style='padding: 0; border:0px;'>";
     } else { 
-      echo "<tr style='padding: 0; border:0px;'><td width='50%'>Single DC</td><td colspan='2'width='50%'>Multi DC</td></tr>";
-      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=single&action=delete'><i class='fa fa-stop'></i></a></li></ul></td>";
-      echo "<td><ul class='list-inline'><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchlab&branch=".$branch."&repo=".$page."&resource=".$num."&mode=multi&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
+      echo "<div class='portfolio-box-caption' style='background:rgba(45, 154, 225,.9);'><div class='portfolio-box-caption-content'>";
+      echo "<div class='project-des'><p>Create or Delete initial setup for this lab environment with the buttons below.</p></div><div class='project-social'>";
+      echo "<table width='100%' style='padding: 0; border:0px;'>";
+      echo "<tr style='padding: 0; border:0px;'><td><ul class='list-inline'><li><a href='./index.php?page=launchlab&branch=".$branch."&class=".$class."&module=".$module."&repo=lab&resource=".$labnum."&action=create'><i class='fa fa-play'></i></a></li><li><a href='./index.php?page=launchlab&branch=".$branch."&class=".$class."&module=".$module."&repo=lab&resource=".$labnum."&action=delete'><i class='fa fa-stop'></i></a></li></ul></td></tr>";
     } 
     echo "</table>";
     echo "</div></div></div></div></div>";

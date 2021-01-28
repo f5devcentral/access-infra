@@ -26,15 +26,15 @@
 <?php
   $cmd = "newman run ".$webloc.$branch."/labs/".$class."/".$module."/postman/".$class."-".$module."-".$resource."-".$action.".postman_collection.json -e ".$webloc.$branch."/labs/".$class."/".$module."/postman/".$branch."-single-dc.postman_environment.json -k";
 
-//  while (@ ob_end_flush()); // end all output buffers if any
-//  $proc = popen($cmd, 'r');
-//  echo '<pre>';
-//  while (!feof($proc)) {
-//    echo fread($proc, 4096);
-//    @ flush();
-//  }
-//  echo '</pre>';
-echo $cmd;
+  while (@ ob_end_flush()); // end all output buffers if any
+  $proc = popen($cmd, 'r');
+  echo '<pre>';
+  while (!feof($proc)) {
+    echo fread($proc, 4096);
+    @ flush();
+  }
+  echo '</pre>';
+//  echo $cmd;
 
 ?>
       </div>

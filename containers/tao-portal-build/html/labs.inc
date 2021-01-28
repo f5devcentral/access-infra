@@ -19,13 +19,13 @@
   echo "<div class='row'>";
   if ( (isset($_GET['filter'])) && ($_GET['filter'] != '') ) {
     foreach ($data as $key => $row) {
-      if (strstr($row['keywords'], $_GET['filter']) !== false) {
-       launchlabtile($portal['branch'],$page,$key,urlencode($row['title']),"some reqs","single");
+      if (strstr(strtolower($row['title']), strtolower($_GET['filter'])) !== false) {
+       launchlabtile($portal['branch'],$key,urlencode($row['title']),$row['postman']);
       }
    }
   } else {
     foreach ($data as $key => $row) {
-      launchlabtile($portal['branch'],$page,$key,urlencode($row['title']),"some reqs","single");
+      launchlabtile($portal['branch'],$key,urlencode($row['title']),$row['postman']);
     }
   }
   echo "</div>";

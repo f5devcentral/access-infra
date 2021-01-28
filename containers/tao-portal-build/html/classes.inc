@@ -18,7 +18,7 @@
   $data=getClassData($page, $fileloc);
   echo "<div class='zerogrid-b'>";
   foreach ($data as $k => $v) {
-    echo "<div class='row'><div class='col-full' style='background: #3c5b74; color: #ffffff; padding: 6px 0px 6px 8px; margin-bottom:8px; font-size: 1.4em; '>".$k." Series: ".$data[$k]['title']."</div></div>";
+    echo "<div class='row'><div class='col-full' style='background: #3c5b74; color: #ffffff; padding: 6px 0px 6px 8px; margin-bottom:8px; font-size: 1.3em; '>".$k." Series: ".$data[$k]['title']."</div></div>";
     foreach ($data[$k] as $ck => $cv) {
       if ( is_numeric(substr($ck,0,3)) ) {
         echo "<div class='row' style='display: flex;'>";
