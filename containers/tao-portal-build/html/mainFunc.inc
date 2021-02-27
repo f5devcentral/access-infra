@@ -89,35 +89,31 @@
           $series[$seriesnum]['title'] = substr($clines[0],strpos($clines[0], ':')+2);  // title
           $series[$seriesnum]['description'] = $clines[3];  // description
           $x = count($clines);
-          $n = 0;
           for ($i = 4; $i <= $x; $i++) {
-            if ($n==0) {
-              if ( is_numeric(substr($clines[$i], 0, 1)) ) {
-                $cap = 0;
-                $classnum = substr($clines[$i],0,3);  // series
-                $title = substr($clines[$i],strpos($clines[$i], '-')+2);  // title
-                $n = 1;  
-              }
+            $line = trim($clines[$i]);
+            if ( is_numeric(substr($line, 0, 1)) ) {
+              $classnum = substr($line,0,3);  // series
+              $title = substr($line,strpos($line, '-')+2);  // title
+              $cflag = 0;
             } else {
-              if ( startsWith($clines[$i], "   :caption") ) {
-                $endtrim = -1 * (strlen($clines[$i]) - strpos($clines[$i], "Labs:") +1);
-                $version = substr($clines[$i], 21, $endtrim);  // version
-                $cap = 1;
+              if ( startsWith($line, ":caption") ) {
+                $endtrim = -1 * (strlen($line) - strpos($line, "Labs:") +1);
+                $version = substr($line, 18, $endtrim);  // version
+                $cflag = 1;
               } 
-              if ( startsWith($clines[$i], "   module") ) {
-                $module = substr($clines[$i],3,strpos($clines[$i], '/')-3);  // module
-                if ($cap == 1) {
+              if ( (startsWith($line, "module")) && (endsWith($line, ".rst")) ) {
+                $module = substr($line,0,strpos($line, '/'));  // module
+                if ( $cflag == 1 ) {
                   $classes[$module]['classnum'] = $classnum."-v".$version;
                   $classes[$module]['title'] = $title;
-                  $n = 1;
+                  $cflag == 0;
                 } else {
                   $classes[$module]['classnum'] = $classnum;
                   $classes[$module]['title'] = $title;
-                  $n = 0;
                 }
               }
             }
-          } 
+          }
           $mdir = $dir.$cvalue."/";
           $mlisting = scandir($mdir);
           foreach ($mlisting as $key => $mvalue) {
