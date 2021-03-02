@@ -9,6 +9,7 @@
             case "portal":
               echo "<li><a href='./index.php?page=lab'><span>Labs</span></a></li>";
               echo "<li class='last'><a href='./index.php?page=solution'><span>Solutions</span></a></li>";
+			  echo "<li><a href='./index.php?page=class'><span>Classes</span></a></li>";
               break;
             case "devportal":
               echo "<li><a href='./index.php?page=lab'><span>Labs</span></a></li>";
