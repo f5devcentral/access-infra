@@ -20,12 +20,12 @@ param(
 $newbody = $body | ConvertFrom-Json
 
 $record_type = $newbody.record_type
-#Write-Host "Type: $record_type"
+Write-Host "Type: $record_type"
 $fqdn = $newbody.fqdn
-#Write-Host " FQDN: $fqdn"
+Write-Host " FQDN: $fqdn"
 
 $computer_ip = $newbody.computer_ip
-#Write-Host "Computer IP: $computer_ip"
+Write-Host "Computer IP: $computer_ip"
 
 $record_type = $record_type.ToUpper()
 $fqdn = $fqdn.ToLower()
@@ -34,6 +34,8 @@ $computer_ip = $computer_ip.ToLower()
 $fqdn_split = $fqdn.Split(".")
 
 $hostname = $fqdn_split[0]
+
+Write-Host " Hostname: $hostname"
 
 For ($i=1; $i -lt $fqdn_split.Length; $i++) {
     
