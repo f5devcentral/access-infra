@@ -2,9 +2,11 @@
 	.DESCRIPTION
 		This script deletes desktop files used in classes or labs.
 	.EXAMPLES
-		
-		.\delete-desktop-files.ps1 -Body '{"repo":"solutions", "number":"7", "user": "user1"  }'
+		For Solutions
+		.\delete-desktop-files.ps1 -Body '{"repo":"access-solutions", "number":"7", "user": "user1"  }'
 			
+		For Labs
+		.\delete-desktop-files.ps1 -Body '{"repo":"access-labs", "class_number":"1", "module_number":"1", "user": "user1"  }'
 	.NOTES
         returns success or failure
 #>
@@ -41,7 +43,7 @@ if ($repo -eq "access-solutions") {
 	$files = Get-ChildItem -path \\jumpbox\c$\access-solutions\solution$solution_number\desktop\
 		foreach ($file in $files) {
 			if(Test-Path \\jumpbox\c$\Users\$user\Desktop\$file) {
-				Remove-Item \\jumpbox\c$\Users\$user\Desktop\$file
+				Remove-Item \\jumpbox\c$\Users\$user\Desktop\$file -Recurse -Force
 				#write-host "files:$file"
 			}
 		}  
@@ -51,7 +53,7 @@ if ($repo -eq "access-solutions") {
 	$files = Get-ChildItem -path \\jumpbox\c$\access-labs\class$class_number\module$module_number\desktop\
 		foreach ($file in $files) {
 			if(Test-Path \\jumpbox\c$\Users\$user\Desktop\$file) {
-				Remove-Item \\jumpbox\c$\Users\$user\Desktop\$file
+				Remove-Item \\jumpbox\c$\Users\$user\Desktop\$file -Recurse -Force
 				#write-host "files:$file"
 			}
 		}  
