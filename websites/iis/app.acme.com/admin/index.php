@@ -21,7 +21,7 @@ $headers = apache_request_headers();
   <div id="contentWrapper">
     <div id="contentBox">
       <div class="contentBoxCentered">
-        <table width='96%' border='1'>
+        <table class="headertable" border=1 >
           <?php
             foreach ($headers as $header => $value) {
               if ( ($header!="F5-Client-Information") && ($header!="Content-Type") ) {
